@@ -1,9 +1,12 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" id="navbar">
     <div class="container">
       <div class="left">
-        <NuxtLink class="brand" to="/">
+        <NuxtLink class="brand white" to="/">
           <img src="@/assets/img/logo/brand.svg" alt="" />
+        </NuxtLink>
+        <NuxtLink class="brand blue" to="/">
+          <img src="@/assets/img/logo/brand-blue.svg" alt="" />
         </NuxtLink>
       </div>
       <div class="border">
@@ -48,6 +51,18 @@ export default {
   components: {
     ChevronDown,
   },
+
+  async mounted() {
+    function scrollHeader() {
+      const navbar = document.getElementById("navbar");
+      if (this.scrollY >= 50) {
+        navbar.classList.add("scroll");
+      } else {
+        navbar.classList.remove("scroll");
+      }
+    }
+    window.addEventListener("scroll", scrollHeader);
+  },
 };
 </script>
 
@@ -59,11 +74,17 @@ export default {
   width: 100%;
   z-index: 999;
   padding: 24px 0;
+  transition: 0.3s;
+}
+.scroll {
+  background: white;
+  padding: 12px 0;
 }
 .container {
   display: grid;
   grid-template-columns: 184px 1fr;
   gap: 54px;
+  padding-left: 48px;
 }
 .border {
   display: flex;
@@ -101,6 +122,7 @@ export default {
   line-height: normal;
   padding: 20px 24px;
   background: var(--red);
+  margin: -1px;
 }
 .wrap :deep(.ant-btn) {
   background: transparent;
@@ -113,5 +135,39 @@ export default {
   display: flex;
   align-items: center;
   gap: 4px;
+  padding: 0;
+  transition: 0s;
+}
+.brand img {
+  width: 172px;
+  height: 100%;
+  object-fit: contain;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.blue {
+  display: none;
+}
+.scroll :deep(.ant-btn) {
+  color: var(--black);
+}
+.scroll :deep(path) {
+  fill: var(--black);
+}
+.scroll .links a {
+  color: var(--black);
+}
+.scroll .white {
+  display: none;
+}
+.scroll .blue {
+  display: block;
+}
+.scroll .border {
+  border-color: #ebebeb;
 }
 </style>

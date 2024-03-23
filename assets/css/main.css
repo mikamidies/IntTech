@@ -16,6 +16,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
+  background: var(--red);
 }
 
 html {
@@ -154,6 +155,20 @@ input[type="number"] {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+.heading {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  border-left: 8px solid var(--red);
+  color: var(--black);
+  padding-left: 32px;
+}
+
+.heading.white {
+  color: white;
 }
 
 @media screen and (max-width: 1024px) {

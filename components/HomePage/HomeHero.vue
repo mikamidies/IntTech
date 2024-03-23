@@ -11,9 +11,11 @@
     ></iframe>
 
     <div class="container">
-      <h4 class="title">
-        Все наши знания о земле начинались с ее изучения из космоса
-      </h4>
+      <div class="border">
+        <h4 class="title">
+          Все наши знания о земле начинались с ее изучения из космоса
+        </h4>
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +40,22 @@ export default {};
   z-index: 2;
   background: rgba(0, 0, 0, 0.5);
 }
+.wrap::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: 2;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
 iframe {
   transform: scale(1.2);
   width: 100%;
@@ -57,15 +75,20 @@ iframe {
   max-width: 730px;
   padding-left: 40px;
   border-left: 8px solid #bb2649;
-  margin-left: -16px;
+  transform: translateY(-72px);
 }
 .container {
-  border-inline: 1px solid var(--border);
   height: 100%;
+  position: relative;
+  z-index: 3;
+}
+.border {
+  height: 100%;
+  border-inline: 1px solid var(--border);
+  z-index: 3;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
-  z-index: 3;
 }
 </style>

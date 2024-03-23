@@ -1,5 +1,7 @@
 <template>
   <div class="wrap">
+    <div class="stick"></div>
+
     <div class="container">
       <div class="border">
         <div class="header">
@@ -101,8 +103,8 @@ export default {
 
 <style scoped>
 .wrap {
-  padding: 140px 0 120px 0;
   overflow: hidden;
+  position: relative;
 }
 .swiper {
   overflow: visible;
@@ -132,5 +134,40 @@ export default {
 }
 .header a :deep(path) {
   fill: var(--red);
+}
+.img img {
+  width: 100%;
+  height: 496px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+.name {
+  color: var(--Black, #020105);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 31.2px */
+  margin-bottom: 16px;
+}
+.sub {
+  color: var(--grey-80, #353437);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%; /* 28px */
+}
+.border {
+  border-inline: 1px solid #ebebeb;
+  padding: 140px 0 120px 0;
+}
+
+.stick {
+  width: 1px;
+  height: 100%;
+  background: #ebebeb;
+  position: absolute;
+  top: 0;
+  left: 50%;
 }
 </style>

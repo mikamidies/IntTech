@@ -1,5 +1,7 @@
 <template>
   <div class="wrap">
+    <div class="stick"></div>
+
     <div class="container">
       <div class="border">
         <div class="header">
@@ -165,5 +167,13 @@ export default {
   font-style: italic;
   font-weight: 400;
   line-height: 140%; /* 28px */
+}
+.stick {
+  width: 1px;
+  height: 100%;
+  background: var(--border);
+  position: absolute;
+  top: 0;
+  left: 50%;
 }
 </style>

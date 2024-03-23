@@ -27,5 +27,25 @@ export default {
     baseURL: "/",
   },
 
-  build: {},
+  build: {
+    babel: {
+      compact: true,
+    },
+    standalone: true,
+    extend(config, ctx) {
+      config.externals = [
+        {
+          encoding: "encoding",
+        },
+      ];
+    },
+  },
+
+  i18n: {
+    locales: ["ru", "uz"],
+    defaultLocale: "ru",
+    vueI18n: {
+      fallbackLocale: "ru",
+    },
+  },
 };

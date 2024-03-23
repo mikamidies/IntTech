@@ -79,12 +79,13 @@ export default {
 .scroll {
   background: white;
   padding: 12px 0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 .container {
   display: grid;
   grid-template-columns: 184px 1fr;
   gap: 54px;
-  padding-left: 48px;
+  padding-left: 40px;
 }
 .border {
   display: flex;

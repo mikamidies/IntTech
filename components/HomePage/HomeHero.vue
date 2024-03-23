@@ -73,7 +73,7 @@ iframe {
   font-weight: 500;
   line-height: 110%;
   max-width: 730px;
-  padding-left: 40px;
+  padding-left: 32px;
   border-left: 8px solid #bb2649;
   transform: translateY(-72px);
 }

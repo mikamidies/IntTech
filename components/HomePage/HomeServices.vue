@@ -18,8 +18,7 @@
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
                   ullam, cumque voluptate delectus temporibus error illum
                   obcaecati dicta cupiditate officiis amet natus minima earum
-                  enim possimus rerum consectetur libero adipisci! Amet,
-                  consectetur!
+                  enim possimus rerum consectetur libero adipisci!
                 </p>
                 <p class="link">Подробнее <ArrowRight /></p>
               </div>
@@ -39,8 +38,7 @@
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
                   ullam, cumque voluptate delectus temporibus error illum
                   obcaecati dicta cupiditate officiis amet natus minima earum
-                  enim possimus rerum consectetur libero adipisci! Amet,
-                  consectetur!
+                  enim possimus rerum consectetur libero adipisci!
                 </p>
                 <p class="link">Подробнее <ArrowRight /></p>
               </div>
@@ -60,8 +58,7 @@
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
                   ullam, cumque voluptate delectus temporibus error illum
                   obcaecati dicta cupiditate officiis amet natus minima earum
-                  enim possimus rerum consectetur libero adipisci! Amet,
-                  consectetur!
+                  enim possimus rerum consectetur libero adipisci!
                 </p>
                 <p class="link">Подробнее <ArrowRight /></p>
               </div>
@@ -81,8 +78,7 @@
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
                   ullam, cumque voluptate delectus temporibus error illum
                   obcaecati dicta cupiditate officiis amet natus minima earum
-                  enim possimus rerum consectetur libero adipisci! Amet,
-                  consectetur!
+                  enim possimus rerum consectetur libero adipisci!
                 </p>
                 <p class="link">Подробнее <ArrowRight /></p>
               </div>
@@ -102,8 +98,7 @@
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
                   ullam, cumque voluptate delectus temporibus error illum
                   obcaecati dicta cupiditate officiis amet natus minima earum
-                  enim possimus rerum consectetur libero adipisci! Amet,
-                  consectetur!
+                  enim possimus rerum consectetur libero adipisci!
                 </p>
                 <p class="link">Подробнее <ArrowRight /></p>
               </div>
@@ -182,6 +177,8 @@ export default {
   left: 24px;
   z-index: 3;
   height: 122px;
+  max-width: 85%;
+  transition: 0.4s;
 }
 .num {
   color: var(--White, var(--White, #fff));
@@ -193,7 +190,7 @@ export default {
 }
 .name {
   color: var(--White, var(--White, #fff));
-  font-size: 20px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 150%; /* 30px */
@@ -218,10 +215,16 @@ export default {
   left: 24px;
   position: absolute;
   max-width: 90%;
-  transition: 1s;
+  transition: 0.4s;
   transform: translateY(120%);
+  width: 320px;
+  min-width: 320px;
 }
 .item:hover .hidden {
+  transform: translateY(0);
+}
+.item:hover .content {
+  top: 24px;
   transform: translateY(0);
 }
 .hidden p {

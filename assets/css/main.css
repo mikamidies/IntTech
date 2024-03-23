@@ -12,7 +12,7 @@
 
 ::-webkit-scrollbar {
   width: 0.44rem;
-  background: transparent;
+  background: var(--black);
 }
 
 ::-webkit-scrollbar-thumb {

@@ -15,13 +15,13 @@
             <NuxtLink to="/"> Home </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/"> Services </NuxtLink>
+            <NuxtLink to="/services"> Services </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/"> Partners </NuxtLink>
+            <NuxtLink to="/partners"> Partners </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/"> Contacts </NuxtLink>
+            <NuxtLink to="/contacts"> Contacts </NuxtLink>
           </li>
         </ul>
 

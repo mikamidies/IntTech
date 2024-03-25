@@ -1,6 +1,6 @@
 <template>
   <div class="site">
-    <DesktopHeader />
+    <DesktopHeader class="whitening" />
     <main>
       <nuxt />
     </main>
@@ -28,5 +28,27 @@ export default {
 }
 main {
   flex: 1;
+}
+.whitening {
+  background: white;
+  border-bottom: 1px solid #ebebeb;
+}
+.whitening :deep(.ant-btn) {
+  color: var(--black);
+}
+.whitening :deep(path) {
+  fill: var(--black);
+}
+.whitening :deep(.links a) {
+  color: var(--black);
+}
+.whitening :deep(.white) {
+  display: none;
+}
+.whitening :deep(.blue) {
+  display: block;
+}
+.whitening :deep(.border) {
+  border-color: #ebebeb;
 }
 </style>

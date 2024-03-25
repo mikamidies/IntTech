@@ -114,6 +114,7 @@ export default {
   font-weight: 400;
   line-height: 130%; /* 31.2px */
   margin-top: 20px;
+  padding-left: 40px;
   max-width: 668px;
 }
 .container {

@@ -6,6 +6,7 @@
     <HomeQuotes />
     <HomeImagery />
     <HomePartners />
+    <HomeNews />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import HomeServices from "~/components/HomePage/HomeServices.vue";
 import HomeQuotes from "~/components/HomePage/HomeQuotes.vue";
 import HomeImagery from "~/components/HomePage/HomeSearch.vue";
 import HomePartners from "~/components/HomePage/HomePartners.vue";
+import HomeNews from "@/components/HomePage/HomeNews.vue";
 
 export default {
   components: {
@@ -25,6 +27,7 @@ export default {
     HomeQuotes,
     HomeImagery,
     HomePartners,
+    HomeNews,
   },
 };
 </script>

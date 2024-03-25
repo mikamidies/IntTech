@@ -35,12 +35,14 @@
               <a-button> Ru <ChevronDown /> </a-button>
             </a-dropdown>
           </div>
-          <div class="button">
+          <div class="button" @click="openAppModal()">
             <button>Contact us</button>
           </div>
         </div>
       </div>
     </div>
+
+    <ApplicationModal ref="appModal" />
   </div>
 </template>
 
@@ -62,6 +64,16 @@ export default {
       }
     }
     window.addEventListener("scroll", scrollHeader);
+  },
+
+  methods: {
+    openAppModal() {
+      this.$refs.appModal.openModal();
+    },
+
+    closeAppModal() {
+      this.$refs.appModal.closeModal();
+    },
   },
 };
 </script>
@@ -124,6 +136,7 @@ export default {
   padding: 20px 24px;
   background: var(--red);
   margin: -1px;
+  cursor: pointer;
 }
 .wrap :deep(.ant-btn) {
   background: transparent;

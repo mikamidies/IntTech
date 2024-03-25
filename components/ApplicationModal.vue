@@ -1,0 +1,199 @@
+<template>
+  <div class="wrapper" :class="{ show: modalHandle == true }">
+    <div class="space" @click="closeModal()"></div>
+    <div class="body">
+      <div class="header">
+        <h4 class="heading">Свяжется с нами</h4>
+
+        <button class="x" @click="closeModal()">
+          <XCom />
+        </button>
+      </div>
+      <form>
+        <input type="text" placeholder="Имя" />
+        <input type="text" placeholder="Номер телефона" />
+        <textarea placeholder="Сообщение"></textarea>
+
+        <div class="flexer">
+          <div class="check">
+            <input type="checkbox" id="check" />
+            <label for="check">
+              Отправляя эту форму, я подтверждаю, что прочитали принимаю
+              <a href="#">Политику конфиденциальности.</a>
+            </label>
+          </div>
+
+          <button type="submit">Отправить <UpArrow /></button>
+        </div>
+      </form>
+
+      <div class="logo">
+        <img src="../assets/img/logo/brand-blue.svg" alt="" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import XCom from "./SvgIcons/XCom.vue";
+import UpArrow from "./SvgIcons/UpArrow.vue";
+
+export default {
+  data() {
+    return {
+      modalHandle: false,
+    };
+  },
+
+  components: {
+    XCom,
+    UpArrow,
+  },
+
+  methods: {
+    openModal() {
+      this.modalHandle = true;
+      document.body.style.overflow = "hidden";
+    },
+
+    closeModal() {
+      this.modalHandle = false;
+      document.body.style.overflow = "auto";
+    },
+  },
+};
+</script>
+
+<style scoped>
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: -1;
+  transition: 0.2s;
+}
+.wrapper.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+  z-index: 999;
+}
+.space {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.48);
+  z-index: 1;
+}
+.body {
+  width: 812px;
+  height: 100%;
+  background: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 40px 80px;
+  position: relative;
+  z-index: 2;
+  transition: 0.4s;
+  transform: translateX(100%);
+}
+.wrapper.show .body {
+  transform: translateX(0);
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 56px;
+  gap: 32px;
+}
+textarea {
+  border: 0;
+  width: 100%;
+  resize: none;
+  min-height: 212px;
+}
+textarea:focus {
+  outline: none;
+}
+input,
+textarea {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 28px */
+  border-bottom: 1px solid #c2c2c3;
+  padding: 12px 0;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--grey-64, #5d5d5f);
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.check label {
+  color: var(--grey-64, #5d5d5f);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  max-width: 400px;
+  display: block;
+}
+.check a {
+  color: var(--red);
+}
+.flexer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flexer button {
+  padding: 12px 24px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--red);
+  color: var(--White, var(--White, #fff));
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 25.2px */
+}
+.flexer :deep(path) {
+  stroke: white !important;
+  fill: transparent !important;
+}
+.logo {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.logo img {
+  width: 490px;
+  object-fit: contain;
+  opacity: 0.15;
+}
+.x {
+  position: absolute;
+  top: 40px;
+  right: 24px;
+}
+</style>

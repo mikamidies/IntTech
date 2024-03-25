@@ -303,6 +303,40 @@ export default {
 .modal.show .body {
   transform: translateX(0);
 }
+.x {
+  position: absolute;
+  top: 40px;
+  right: 24px;
+}
+.scroller {
+  overflow-y: auto;
+  height: 90%;
+  padding-right: 16px;
+  margin-right: -16px;
+}
+.scroller::-webkit-scrollbar {
+  width: 6px;
+}
+.scroller::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.scroller::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 4px;
+}
+.logo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.logo img {
+  object-fit: contain;
+  height: 250px;
+  width: 490px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.1;
+}
 .par {
   color: var(--Black, #020105);
   font-size: 24px;
@@ -312,11 +346,6 @@ export default {
   border-left: 8px solid var(--red);
   padding-left: 16px;
   margin-bottom: 26px;
-}
-.x {
-  position: absolute;
-  top: 40px;
-  right: 24px;
 }
 .image img {
   width: 100%;

@@ -51,4 +51,9 @@ main {
 .whitening :deep(.border) {
   border-color: #ebebeb;
 }
+@media screen and (max-width: 768px) {
+  .whitening {
+    display: none;
+  }
+}
 </style>

@@ -136,4 +136,63 @@ button {
   z-index: 1;
   object-fit: contain;
 }
+@media screen and (max-width: 768px) {
+  .wrap {
+    overflow: hidden;
+  }
+  .border {
+    border-right: 0;
+    margin-right: -16px;
+  }
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .left {
+    padding: 48px 0;
+    border-right: 0;
+  }
+  .right {
+    padding: 40px 20px;
+    border-top: 1px solid var(--border);
+  }
+  .items {
+    gap: 16px;
+  }
+  .num {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+  }
+  .pad {
+    padding: 0 36px 0 20px;
+  }
+  .sub {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+  }
+  .txt {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+  }
+  .value {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .img {
+    height: 200px;
+    object-fit: cover;
+    right: -32px;
+    opacity: 0.7;
+  }
+  button {
+    width: 100%;
+  }
+}
 </style>

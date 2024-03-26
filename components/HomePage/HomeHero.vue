@@ -91,4 +91,25 @@ iframe {
   flex-direction: column;
   justify-content: center;
 }
+@media screen and (max-width: 768px) {
+  .wrap {
+    height: 520px;
+  }
+  .title {
+    color: var(--White, var(--White, #fff));
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%; /* 35.2px */
+    padding-left: 16px;
+    border-left: 4px solid var(--red);
+    transform: translateY(0);
+  }
+  iframe {
+    transform: scale(3);
+  }
+  .border {
+    border-right: 0;
+  }
+}
 </style>

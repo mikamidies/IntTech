@@ -242,4 +242,61 @@ export default {
   gap: 8px;
   margin-bottom: 0 !important;
 }
+@media screen and (max-width: 768px) {
+  .items {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+    padding-top: 24px;
+  }
+  .border {
+    border-right: 0;
+    padding: 64px 0;
+  }
+  .stick {
+    display: none;
+  }
+  .item {
+    width: 100%;
+    height: 280px;
+    border-radius: 8px;
+  }
+  .item a {
+    flex-direction: column;
+    padding: 16px;
+  }
+  .item:hover {
+    width: 100%;
+  }
+  .num {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+  .name {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 21px */
+    text-transform: uppercase;
+  }
+  .hidden p {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .content,
+  .hidden {
+    position: static;
+    transform: translateY(0);
+    min-width: unset;
+    width: unset;
+    max-width: unset;
+  }
+  .item:hover .content {
+    transform: translateY(0);
+  }
+}
 </style>

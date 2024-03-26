@@ -1,6 +1,8 @@
 <template>
   <div class="site">
     <DesktopHeader class="desktop" />
+    <MobileHeader class="mobile" />
+
     <main>
       <nuxt />
     </main>
@@ -29,9 +31,16 @@ export default {
 main {
   flex: 1;
 }
+.mobile {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .desktop {
     display: none;
+  }
+  .mobile {
+    display: block;
   }
 }
 </style>

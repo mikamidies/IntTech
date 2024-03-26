@@ -176,4 +176,35 @@ export default {
   top: 0;
   left: 50%;
 }
+@media screen and (max-width: 768px) {
+  .border {
+    padding: 48px 0 120px 0;
+    border-right: 0;
+  }
+  .stick {
+    display: none;
+  }
+  .text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+  .author {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 140%;
+  }
+  .buttons {
+    position: absolute;
+    right: 38px;
+    bottom: 40px;
+  }
+  .header {
+    position: static;
+  }
+  .wrap::after {
+    display: none;
+  }
+}
 </style>

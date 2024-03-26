@@ -94,8 +94,14 @@ export default {
 
   mounted() {
     new Swiper(this.$refs.searchSwiper, {
-      slidesPerView: 4.5,
-      spaceBetween: 24,
+      slidesPerView: 1.3,
+      spaceBetween: 16,
+      breakpoints: {
+        768: {
+          slidesPerView: 4.5,
+          spaceBetween: 24,
+        },
+      },
     });
   },
 };
@@ -169,5 +175,41 @@ export default {
   position: absolute;
   top: 0;
   left: 50%;
+}
+@media screen and (max-width: 768px) {
+  .border {
+    padding: 64px 0 132px 0;
+    border-right: 0;
+  }
+  .stick {
+    display: none;
+  }
+  .header {
+    margin-bottom: 24px;
+  }
+  .header a {
+    position: absolute;
+    bottom: 64px;
+    width: 100%;
+    justify-content: center;
+  }
+  .img img {
+    height: 387px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .name {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    margin-bottom: 8px;
+  }
+  .sub {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
 }
 </style>

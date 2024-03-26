@@ -73,4 +73,28 @@ ol a {
   font-weight: 400;
   line-height: 150%; /* 24px */
 }
+@media screen and (max-width: 768px) {
+  .cardo {
+    padding: 24px;
+  }
+  .title {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%;
+  }
+  .line {
+    width: 100%;
+  }
+  .wrap {
+    padding-top: 80px;
+  }
+  ol a,
+  ol p {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+  }
+}
 </style>

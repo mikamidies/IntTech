@@ -387,7 +387,7 @@ export default {
   stroke: white !important;
   fill: transparent !important;
 }
-.link {
+.modal .link {
   margin-bottom: 24px;
 }
 .files {
@@ -410,5 +410,112 @@ export default {
   justify-content: center;
   position: relative;
   z-index: 2;
+}
+@media screen and (max-width: 768px) {
+  .stick {
+    display: none;
+  }
+  .items {
+    padding: 64px 0;
+  }
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .item {
+    padding: 16px;
+  }
+  .img img {
+    width: 125px;
+    height: 64px;
+  }
+  .header {
+    margin-bottom: 16px;
+  }
+  .html {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .header a {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .modal {
+    align-items: flex-end;
+  }
+  .body {
+    height: 90%;
+    padding: 24px 16px;
+    transform: translateY(100%);
+  }
+  .par {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    padding-left: 16px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--red);
+  }
+  .x {
+    top: 24px;
+    right: 16px;
+  }
+  .x :deep(svg) {
+    width: 16px;
+    height: 16px;
+  }
+  .scroller {
+    padding-right: 12px;
+    margin-right: 0px;
+  }
+  .logo img {
+    margin-bottom: 16px;
+    height: 40px;
+    width: auto;
+  }
+  .iframe iframe {
+    height: 190px;
+    margin-bottom: 16px;
+  }
+  .icon {
+    display: none;
+  }
+  .files {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .modal .html p {
+    margin-bottom: 16px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .video_link a {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+    text-decoration-line: underline;
+  }
+  .link a {
+    width: 100%;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    justify-content: center;
+  }
+  .file a {
+    padding: 8px 16px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
 }
 </style>

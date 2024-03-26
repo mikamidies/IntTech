@@ -142,4 +142,59 @@ export default {
   text-align: center;
   padding-top: 24px;
 }
+@media screen and (max-width: 768px) {
+  .border {
+    border-block: 0;
+    border-inline: 1px solid var(--border);
+    padding: 24px 24px 0 24px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .wrap {
+    padding: 0;
+  }
+  .right {
+    justify-content: flex-start;
+  }
+  .left img {
+    width: 100px;
+  }
+  .links {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .links a {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+  }
+  .left,
+  .mid {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .sup {
+    text-align: left;
+  }
+  .right {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+  }
+  .bottom {
+    border-inline: 1px solid var(--border);
+    padding: 16px 24px 24px 24px;
+  }
+  .bottom p {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    padding: 0;
+    text-align: left;
+  }
+}
 </style>

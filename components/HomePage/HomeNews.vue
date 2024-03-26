@@ -166,11 +166,17 @@ export default {
 
   mounted() {
     new Swiper(this.$refs.newsSwiper, {
-      slidesPerView: 3,
-      spaceBetween: 24,
+      slidesPerView: 2,
+      spaceBetween: 16,
       navigation: {
         prevEl: ".newsPrev",
         nextEl: ".newsNext",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 24,
+        },
       },
     });
   },
@@ -382,6 +388,7 @@ export default {
   position: absolute;
   bottom: 0;
   right: 0;
+  pointer-events: none;
 }
 .logo img {
   object-fit: contain;
@@ -390,5 +397,83 @@ export default {
   pointer-events: none;
   z-index: 1;
   opacity: 0.1;
+}
+@media screen and (max-width: 768px) {
+  .border {
+    border-right: 0;
+    padding-bottom: 120px;
+  }
+  .stick {
+    display: none;
+  }
+  .buttons {
+    position: absolute;
+    bottom: 40px;
+    right: 16px;
+  }
+  .header {
+    margin-bottom: 24px;
+  }
+  .img img {
+    height: 120px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .date {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .name {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .modal {
+    align-items: flex-end;
+  }
+  .body {
+    height: 90%;
+    padding: 24px 16px;
+    transform: translateY(100%);
+  }
+  .par {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    padding-left: 16px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--red);
+  }
+  .x {
+    top: 24px;
+    right: 16px;
+  }
+  .x :deep(svg) {
+    width: 16px;
+    height: 16px;
+  }
+  .scroller {
+    padding-right: 12px;
+    margin-right: 0px;
+  }
+  .image img {
+    height: 190px;
+    margin-bottom: 16px;
+  }
+  .html p {
+    margin-bottom: 16px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .logo {
+    display: none;
+  }
 }
 </style>

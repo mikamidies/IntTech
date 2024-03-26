@@ -78,10 +78,15 @@ export default {
 
   mounted() {
     new Swiper(this.$refs.partnersSwiper, {
-      slidesPerView: 5,
+      slidesPerView: 2,
       navigation: {
         prevEl: ".partPrev",
         nextEl: ".partNext",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 5,
+        },
       },
     });
   },
@@ -175,5 +180,36 @@ export default {
   position: absolute;
   top: 0;
   left: 50%;
+}
+@media screen and (max-width: 768px) {
+  .border {
+    border-right: 0;
+    padding-bottom: 64px;
+  }
+  .stick {
+    display: none;
+  }
+  .satellite {
+    display: none;
+  }
+  .header {
+    grid-template-columns: repeat(1, 1fr);
+    display: grid;
+    margin-bottom: 24px;
+  }
+  .sub {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    margin-top: 16px;
+    padding-left: 20px;
+  }
+  .swiper-slide {
+    height: 80px;
+  }
+  .buttons {
+    display: none;
+  }
 }
 </style>

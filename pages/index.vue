@@ -2,7 +2,7 @@
   <div class="master">
     <HomeHero />
     <HomeAbout />
-    <HomeServices />
+    <HomeServices :services="services" />
     <HomeQuotes />
     <HomeImagery />
     <HomePartners />
@@ -19,6 +19,8 @@ import HomeImagery from "~/components/HomePage/HomeSearch.vue";
 import HomePartners from "~/components/HomePage/HomePartners.vue";
 import HomeNews from "@/components/HomePage/HomeNews.vue";
 
+import servicesApi from "@/api/services";
+
 export default {
   components: {
     HomeHero,
@@ -28,6 +30,25 @@ export default {
     HomeImagery,
     HomePartners,
     HomeNews,
+  },
+
+  data() {
+    return {};
+  },
+
+  async asyncData({ $axios, query, i18n }) {
+    const servicesData = await servicesApi.getServices($axios, {
+      params: query,
+      headers: {
+        language: i18n.locale,
+      },
+    });
+
+    const services = servicesData.reverse();
+
+    return {
+      services,
+    };
   },
 };
 </script>

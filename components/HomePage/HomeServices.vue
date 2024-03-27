@@ -6,104 +6,19 @@
       <div class="border">
         <h4 class="heading">Наши сервисы</h4>
         <div class="items">
-          <div class="item">
+          <div class="item" v-for="item in services" :key="item.id">
             <NuxtLink to="/">
               <div class="content">
                 <p class="num">1</p>
-                <p class="name">Spatial data</p>
+                <p class="name">{{ item.title }}</p>
               </div>
 
               <div class="hidden">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
-                  ullam, cumque voluptate delectus temporibus error illum
-                  obcaecati dicta cupiditate officiis amet natus minima earum
-                  enim possimus rerum consectetur libero adipisci!
-                </p>
+                <div v-html="item.desc"></div>
                 <p class="link">Подробнее <ArrowRight /></p>
               </div>
             </NuxtLink>
-            <img src="@/assets/img/serv-1.jpg" alt="" class="pic" />
-          </div>
-
-          <div class="item">
-            <NuxtLink to="/">
-              <div class="content">
-                <p class="num">2</p>
-                <p class="name">Ready solutions</p>
-              </div>
-
-              <div class="hidden">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
-                  ullam, cumque voluptate delectus temporibus error illum
-                  obcaecati dicta cupiditate officiis amet natus minima earum
-                  enim possimus rerum consectetur libero adipisci!
-                </p>
-                <p class="link">Подробнее <ArrowRight /></p>
-              </div>
-            </NuxtLink>
-            <img src="@/assets/img/serv-2.jpg" alt="" class="pic" />
-          </div>
-
-          <div class="item">
-            <NuxtLink to="/">
-              <div class="content">
-                <p class="num">3</p>
-                <p class="name">Processing and Service</p>
-              </div>
-
-              <div class="hidden">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
-                  ullam, cumque voluptate delectus temporibus error illum
-                  obcaecati dicta cupiditate officiis amet natus minima earum
-                  enim possimus rerum consectetur libero adipisci!
-                </p>
-                <p class="link">Подробнее <ArrowRight /></p>
-              </div>
-            </NuxtLink>
-            <img src="@/assets/img/serv-3.jpg" alt="" class="pic" />
-          </div>
-
-          <div class="item">
-            <NuxtLink to="/">
-              <div class="content">
-                <p class="num">4</p>
-                <p class="name">Software</p>
-              </div>
-
-              <div class="hidden">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
-                  ullam, cumque voluptate delectus temporibus error illum
-                  obcaecati dicta cupiditate officiis amet natus minima earum
-                  enim possimus rerum consectetur libero adipisci!
-                </p>
-                <p class="link">Подробнее <ArrowRight /></p>
-              </div>
-            </NuxtLink>
-            <img src="@/assets/img/serv-1.jpg" alt="" class="pic" />
-          </div>
-
-          <div class="item">
-            <NuxtLink to="/">
-              <div class="content">
-                <p class="num">5</p>
-                <p class="name">Equipment and devices</p>
-              </div>
-
-              <div class="hidden">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
-                  ullam, cumque voluptate delectus temporibus error illum
-                  obcaecati dicta cupiditate officiis amet natus minima earum
-                  enim possimus rerum consectetur libero adipisci!
-                </p>
-                <p class="link">Подробнее <ArrowRight /></p>
-              </div>
-            </NuxtLink>
-            <img src="@/assets/img/serv-1.jpg" alt="" class="pic" />
+            <img :src="item.image" alt="" class="pic" />
           </div>
         </div>
       </div>
@@ -117,6 +32,12 @@ import ArrowRight from "@/components/SvgIcons/ArrowRight.vue";
 export default {
   components: {
     ArrowRight,
+  },
+
+  props: ["services"],
+
+  mounted() {
+    console.log(this.services);
   },
 };
 </script>
@@ -227,13 +148,19 @@ export default {
   top: 24px;
   transform: translateY(0);
 }
-.hidden p {
+.hidden :deep(p) {
   color: var(--White, var(--White, #fff));
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
   margin-bottom: 16px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .link {
   font-size: 16px;

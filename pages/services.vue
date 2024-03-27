@@ -414,4 +414,96 @@ export default {
   font-weight: 400;
   line-height: 140%; /* 25.2px */
 }
+@media screen and (max-width: 768px) {
+  .stick {
+    display: none;
+  }
+  .border {
+    padding: 64px 0;
+    gap: 64px;
+  }
+  .name {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    padding-left: 12px;
+    margin-bottom: 16px;
+    border-width: 4px;
+  }
+  .images {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .image {
+    height: 155px;
+  }
+  .par {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+  }
+  .content {
+    padding: 12px;
+  }
+
+  .modal {
+    align-items: flex-end;
+  }
+  .body {
+    height: 90%;
+    padding: 24px 16px;
+    transform: translateY(100%);
+  }
+  .par {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    padding-left: 16px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--red);
+  }
+  .x {
+    top: 24px;
+    right: 16px;
+  }
+  .x :deep(svg) {
+    width: 16px;
+    height: 16px;
+  }
+  .scroller {
+    padding-right: 12px;
+    margin-right: 0px;
+  }
+  .piece {
+    gap: 8px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .poster img {
+    height: 190px;
+    border-radius: 8px;
+  }
+  .text h4 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    margin-bottom: 8px;
+  }
+  .text p {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .modal h2 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    margin-bottom: 16px;
+  }
+}
 </style>

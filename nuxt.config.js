@@ -24,7 +24,7 @@ export default {
   modules: ["@nuxtjs/axios", "@nuxtjs/i18n"],
 
   axios: {
-    baseURL: "/",
+    baseURL: process.env.BASE_URL,
   },
 
   build: {

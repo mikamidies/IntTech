@@ -174,4 +174,49 @@ export default {
   line-height: 140%; /* 33.6px */
   max-width: 576px;
 }
+@media screen and (max-width: 768px) {
+  .stick {
+    display: none;
+  }
+  .border {
+    padding: 64px 0;
+  }
+  .top {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .item {
+    padding: 16px;
+    border-width: 4px;
+    gap: 12px;
+  }
+  .sup {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .value {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+  }
+  .content h4 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+  .content p {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .content {
+    padding: 16px 24px;
+    max-width: 90%;
+  }
+}
 </style>

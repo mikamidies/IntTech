@@ -28,35 +28,8 @@
 
         <div class="swiper" ref="partnersSwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="@/assets/img/logo/part-1.svg" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="@/assets/img/logo/part-2.svg" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="@/assets/img/logo/part-3.svg" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="@/assets/img/logo/part-4.svg" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="@/assets/img/logo/part-5.svg" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="@/assets/img/logo/part-1.svg" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="@/assets/img/logo/part-2.svg" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="@/assets/img/logo/part-3.svg" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="@/assets/img/logo/part-4.svg" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="@/assets/img/logo/part-5.svg" alt="" class="pic" />
+            <div class="swiper-slide" v-for="item in partners" :key="item.id">
+              <img :src="item.image" alt="" class="pic" />
             </div>
           </div>
         </div>
@@ -75,6 +48,8 @@ export default {
   components: {
     ChevronDown,
   },
+
+  props: ["partners"],
 
   mounted() {
     new Swiper(this.$refs.partnersSwiper, {
@@ -169,7 +144,7 @@ export default {
 }
 .pic {
   width: 70%;
-  height: auto;
+  height: 60%;
   object-fit: contain;
 }
 

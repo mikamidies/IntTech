@@ -6,10 +6,10 @@
       <div class="border">
         <h4 class="heading">Наши сервисы</h4>
         <div class="items">
-          <div class="item" v-for="item in services" :key="item.id">
+          <div class="item" v-for="(item, index) in services" :key="item.id">
             <NuxtLink to="/">
               <div class="content">
-                <p class="num">1</p>
+                <p class="num">{{ index + 1 }}</p>
                 <p class="name">{{ item.title }}</p>
               </div>
 
@@ -35,10 +35,6 @@ export default {
   },
 
   props: ["services"],
-
-  mounted() {
-    console.log(this.services);
-  },
 };
 </script>
 

@@ -3,10 +3,10 @@
     <HomeHero />
     <HomeAbout />
     <HomeServices :services="services" />
-    <HomeQuotes />
-    <HomeImagery />
-    <HomePartners />
-    <HomeNews />
+    <HomeQuotes :quotes="quotes" />
+    <HomeImagery :places="places" />
+    <HomePartners :partners="partners" />
+    <HomeNews :news="news" />
   </div>
 </template>
 
@@ -20,6 +20,10 @@ import HomePartners from "~/components/HomePage/HomePartners.vue";
 import HomeNews from "@/components/HomePage/HomeNews.vue";
 
 import servicesApi from "@/api/services";
+import quotesApi from "@/api/quotes";
+import placesApi from "@/api/places";
+import partnersApi from "@/api/partners";
+import newsApi from "@/api/news";
 
 export default {
   components: {
@@ -43,11 +47,39 @@ export default {
         language: i18n.locale,
       },
     });
+    const quotes = await quotesApi.getQuotes($axios, {
+      params: query,
+      headers: {
+        language: i18n.locale,
+      },
+    });
+    const places = await placesApi.getPlaces($axios, {
+      params: query,
+      headers: {
+        language: i18n.locale,
+      },
+    });
+    const partners = await partnersApi.getPartners($axios, {
+      params: query,
+      headers: {
+        language: i18n.locale,
+      },
+    });
+    const news = await newsApi.getNews($axios, {
+      params: query,
+      headers: {
+        language: i18n.locale,
+      },
+    });
 
     const services = servicesData.reverse();
 
     return {
       services,
+      quotes,
+      places,
+      partners,
+      news,
     };
   },
 };

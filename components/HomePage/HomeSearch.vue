@@ -12,67 +12,13 @@
 
         <div class="swiper" ref="searchSwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <div class="swiper-slide" v-for="item in places" :key="item.id">
               <div class="img">
-                <img src="@/assets/img/search-1.jpg" alt="" />
+                <img :src="item.image" alt="" />
               </div>
               <div class="content">
-                <p class="name">Kaluhui</p>
-                <p class="sub">Kaluhui</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="img">
-                <img src="@/assets/img/search-2.jpg" alt="" />
-              </div>
-              <div class="content">
-                <p class="name">Kaluhui</p>
-                <p class="sub">Kaluhui</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="img">
-                <img src="@/assets/img/search-3.jpg" alt="" />
-              </div>
-              <div class="content">
-                <p class="name">Kaluhui</p>
-                <p class="sub">Kaluhui</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="img">
-                <img src="@/assets/img/search-4.jpg" alt="" />
-              </div>
-              <div class="content">
-                <p class="name">Kaluhui</p>
-                <p class="sub">Kaluhui</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="img">
-                <img src="@/assets/img/search-1.jpg" alt="" />
-              </div>
-              <div class="content">
-                <p class="name">Kaluhui</p>
-                <p class="sub">Kaluhui</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="img">
-                <img src="@/assets/img/search-4.jpg" alt="" />
-              </div>
-              <div class="content">
-                <p class="name">Kaluhui</p>
-                <p class="sub">Kaluhui</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="img">
-                <img src="@/assets/img/search-1.jpg" alt="" />
-              </div>
-              <div class="content">
-                <p class="name">Kaluhui</p>
-                <p class="sub">Kaluhui</p>
+                <p class="name">{{ item.title }}</p>
+                <p class="sub">{{ item.subtitle }}</p>
               </div>
             </div>
           </div>
@@ -91,6 +37,8 @@ export default {
   components: {
     ArrowRight,
   },
+
+  props: ["places"],
 
   mounted() {
     new Swiper(this.$refs.searchSwiper, {

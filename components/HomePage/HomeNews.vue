@@ -19,51 +19,19 @@
 
         <div class="swiper" ref="newsSwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide" @click="openModal()">
+            <div
+              class="swiper-slide"
+              v-for="item in news"
+              :key="item.id"
+              @click="openModal()"
+            >
               <div class="img">
-                <img src="@/assets/img/post.png" alt="" />
+                <img :src="item.image" alt="" />
               </div>
               <div class="content">
-                <p class="date">20 марта 2024</p>
+                <p class="date">{{ item.created_at }}</p>
                 <p class="name">
-                  Легкий ветер шептал секреты сквозь шелестящие листья, неся
-                  запах соснов ...
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide" @click="openModal()">
-              <div class="img">
-                <img src="@/assets/img/post.png" alt="" />
-              </div>
-              <div class="content">
-                <p class="date">20 марта 2024</p>
-                <p class="name">
-                  Легкий ветер шептал секреты сквозь шелестящие листья, неся
-                  запах соснов ...
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide" @click="openModal()">
-              <div class="img">
-                <img src="@/assets/img/post.png" alt="" />
-              </div>
-              <div class="content">
-                <p class="date">20 марта 2024</p>
-                <p class="name">
-                  Легкий ветер шептал секреты сквозь шелестящие листья, неся
-                  запах соснов ...
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide" @click="openModal()">
-              <div class="img">
-                <img src="@/assets/img/post.png" alt="" />
-              </div>
-              <div class="content">
-                <p class="date">20 марта 2024</p>
-                <p class="name">
-                  Легкий ветер шептал секреты сквозь шелестящие листья, неся
-                  запах соснов ...
+                  {{ item.title }}
                 </p>
               </div>
             </div>
@@ -146,6 +114,8 @@ export default {
     ChevronDown,
     XCom,
   },
+
+  props: ["news"],
 
   data() {
     return {

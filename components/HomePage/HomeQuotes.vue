@@ -19,34 +19,9 @@
 
         <div class="swiper" ref="quotesSwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <div class="swiper-slide" v-for="item in quotes" :key="item.id">
               <div class="content">
-                <p class="text">
-                  "Дистанционное зондирование земли - это мощный инструмент для
-                  изучения и мониторинга нашей планеты, который помогает нам
-                  лучше понять ее изменения и сохранить окружающую среду."
-                </p>
-                <p class="author">“ Аль Горе</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="content">
-                <p class="text">
-                  "Дистанционное зондирование земли - это мощный инструмент для
-                  изучения и мониторинга нашей планеты, который помогает нам
-                  лучше понять ее изменения и сохранить окружающую среду."
-                </p>
-                <p class="author">“ Аль Горе</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="content">
-                <p class="text">
-                  "Дистанционное зондирование земли - это мощный инструмент для
-                  изучения и мониторинга нашей планеты, который помогает нам
-                  лучше понять ее изменения и сохранить окружающую среду."
-                </p>
-                <p class="author">“ Аль Горе</p>
+                <div class="text" v-html="item.text"></div>
               </div>
             </div>
           </div>
@@ -67,6 +42,8 @@ export default {
     ChevronDown,
   },
 
+  props: ["quotes"],
+
   mounted() {
     new Swiper(this.$refs.quotesSwiper, {
       slidesPerView: 1,
@@ -75,6 +52,8 @@ export default {
         nextEl: ".next",
       },
     });
+
+    console.log(this.quotes);
   },
 };
 </script>

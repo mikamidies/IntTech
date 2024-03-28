@@ -92,6 +92,10 @@ export default {
     new Swiper(this.$refs.searchSwiper, {
       slidesPerView: 1.3,
       spaceBetween: 16,
+      autoplay: {
+        disableOnInteraction: false,
+        delay: 3000,
+      },
       breakpoints: {
         768: {
           slidesPerView: 4.5,
@@ -137,12 +141,19 @@ export default {
 .header a :deep(path) {
   fill: var(--red);
 }
+.swiper-slide:hover img {
+  transform: scale(1.1);
+}
+.img {
+  border-radius: 16px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
 .img img {
+  transition: 0.3s;
   width: 100%;
   height: 496px;
-  border-radius: 16px;
   object-fit: cover;
-  margin-bottom: 16px;
 }
 .name {
   color: var(--Black, #020105);

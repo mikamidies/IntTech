@@ -95,7 +95,7 @@ main {
   display: none;
 }
 .whitening :deep(.blue) {
-  display: block;
+  display: block !important;
 }
 .whitening :deep(.border) {
   border-color: #ebebeb;

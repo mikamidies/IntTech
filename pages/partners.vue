@@ -7,94 +7,23 @@
     <div class="container">
       <div class="items">
         <div class="grid">
-          <div class="item" @click="openModal()">
+          <div
+            class="item"
+            v-for="item in partners"
+            :key="item.id"
+            @click="getId(item.id)"
+          >
             <div class="header">
               <div class="img">
-                <img src="@/assets/img/logo/part-1.svg" alt="" />
+                <img :src="item.image" alt="" />
               </div>
 
-              <a href="#" class="link"> Перейти <UpArrow /> </a>
+              <a :href="item.url" target="blank" class="link">
+                Перейти <UpArrow />
+              </a>
             </div>
             <div class="content">
-              <div class="html">
-                MAXAR (США) - ведущая компания, управляющая крупнейшей
-                группировкой спутников сверхвысокого разрешения на околоземной
-                орбите, обеспечивающая обширный охват спутниковыми снимками
-                высокого разрешения и предлагающая инновационные решения для
-                дистанционного зондирования
-              </div>
-            </div>
-          </div>
-          <div class="item" @click="openModal()">
-            <div class="header">
-              <div class="img">
-                <img src="@/assets/img/logo/part-2.svg" alt="" />
-              </div>
-
-              <a href="#" class="link"> Перейти <UpArrow /> </a>
-            </div>
-            <div class="content">
-              <div class="html">
-                MAXAR (США) - ведущая компания, управляющая крупнейшей
-                группировкой спутников сверхвысокого разрешения на околоземной
-                орбите, обеспечивающая обширный охват спутниковыми снимками
-                высокого разрешения и предлагающая инновационные решения для
-                дистанционного зондирования
-              </div>
-            </div>
-          </div>
-          <div class="item" @click="openModal()">
-            <div class="header">
-              <div class="img">
-                <img src="@/assets/img/logo/part-3.svg" alt="" />
-              </div>
-
-              <a href="#" class="link"> Перейти <UpArrow /> </a>
-            </div>
-            <div class="content">
-              <div class="html">
-                MAXAR (США) - ведущая компания, управляющая крупнейшей
-                группировкой спутников сверхвысокого разрешения на околоземной
-                орбите, обеспечивающая обширный охват спутниковыми снимками
-                высокого разрешения и предлагающая инновационные решения для
-                дистанционного зондирования
-              </div>
-            </div>
-          </div>
-          <div class="item" @click="openModal()">
-            <div class="header">
-              <div class="img">
-                <img src="@/assets/img/logo/part-4.svg" alt="" />
-              </div>
-
-              <a href="#" class="link"> Перейти <UpArrow /> </a>
-            </div>
-            <div class="content">
-              <div class="html">
-                MAXAR (США) - ведущая компания, управляющая крупнейшей
-                группировкой спутников сверхвысокого разрешения на околоземной
-                орбите, обеспечивающая обширный охват спутниковыми снимками
-                высокого разрешения и предлагающая инновационные решения для
-                дистанционного зондирования
-              </div>
-            </div>
-          </div>
-          <div class="item" @click="openModal()">
-            <div class="header">
-              <div class="img">
-                <img src="@/assets/img/logo/part-5.svg" alt="" />
-              </div>
-
-              <a href="#" class="link"> Перейти <UpArrow /> </a>
-            </div>
-            <div class="content">
-              <div class="html">
-                MAXAR (США) - ведущая компания, управляющая крупнейшей
-                группировкой спутников сверхвысокого разрешения на околоземной
-                орбите, обеспечивающая обширный охват спутниковыми снимками
-                высокого разрешения и предлагающая инновационные решения для
-                дистанционного зондирования
-              </div>
+              <div class="html" v-html="item.desc"></div>
             </div>
           </div>
         </div>
@@ -109,13 +38,13 @@
         </button>
 
         <div class="logo">
-          <img src="@/assets/img/logo/part-1.svg" alt="" />
+          <img :src="partnersOne.image" alt="" />
         </div>
 
         <div class="scroller">
           <div class="iframe">
             <iframe
-              src="https://www.youtube.com/embed/gWFX_JqYYt8?si=qGT-KoFuB__ii46v"
+              :src="partnersOne.video_url"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -123,33 +52,17 @@
               allowfullscreen
             ></iframe>
           </div>
-          <div class="html">
-            <p>
-              Planet lab (США) - ведущий поставщик спутниковых данных для
-              получения изображений Земли и геопространственной аналитики,
-              предлагающий инновационные решения для мониторинга и анализа
-              земной поверхности.Planet lab (США) - ведущий поставщик
-              спутниковых данных для получения изображений Земли и
-              геопространственной аналитики, предлагающий инновационные решения
-              для мониторинга и анализа земной поверхности.
-            </p>
-            <p>
-              Planet lab (США) - ведущий поставщик спутниковых данных для
-              получения изображений Земли и геопространственной аналитики,
-              предлагающий инновационные решения для мониторинга и анализа
-              земной поверхности.Planet lab (США) - ведущий поставщик
-              спутниковых данных для получения изображений Земли и
-              геопространственной аналитики, предлагающий инновационные решения
-              для мониторинга и анализа земной поверхности.
-            </p>
-          </div>
+          <div class="html" v-html="partnersOne.desc"></div>
           <div class="video_link">
-            <a href="#" target="_blank"
-              >https://www.youtube.com/watch?v=9RzK6V-A_E0
+            <a :href="partnersOne.video_url" target="_blank"
+              >{{ partnersOne.video_url }}
             </a>
           </div>
           <div class="link">
-            <a href="#" target="_blank"> Перейти на сайт <UpArrow /> </a>
+            <a :href="partnersOne.url" target="_blank">
+              {{ partnersOne.url?.replace("https://", "")?.replace("/", "") }}
+              <UpArrow />
+            </a>
           </div>
           <div class="files">
             <div class="file">
@@ -180,16 +93,42 @@ import UpArrow from "@/components/SvgIcons/UpArrow.vue";
 import XCom from "@/components/SvgIcons/XCom.vue";
 import FileIcon from "@/components/SvgIcons/FileIcon.vue";
 
+import partnersApi from "@/api/partners";
+
 export default {
   layout: "white",
 
   data() {
     return {
       modalHandle: false,
+      partnersOne: {},
+    };
+  },
+
+  async asyncData({ $axios, query, i18n }) {
+    const partnersData = await partnersApi.getPartners($axios, {
+      params: query,
+      headers: {
+        language: i18n.locale,
+      },
+    });
+
+    const partners = partnersData?.reverse();
+
+    console.log(partners);
+
+    return {
+      partners,
     };
   },
 
   methods: {
+    getId(id) {
+      this.partnersOne = this.partners.find((item) => item.id == id);
+
+      this.openModal();
+    },
+
     openModal() {
       this.modalHandle = true;
       document.body.style.overflow = "hidden";
@@ -258,6 +197,11 @@ export default {
   font-style: normal;
   font-weight: 400;
   line-height: 140%; /* 25.2px */
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .modal {
@@ -361,6 +305,11 @@ export default {
   font-weight: 400;
   line-height: 150%; /* 24px */
   text-decoration-line: underline;
+  cursor: pointer;
+  word-break: break-all;
+}
+.modal .html {
+  display: block;
 }
 .modal .html p {
   color: var(--Black, #020105);
@@ -382,6 +331,8 @@ export default {
   font-style: normal;
   font-weight: 400;
   line-height: 140%; /* 25.2px */
+  cursor: pointer;
+  word-break: break-all;
 }
 .modal .link :deep(path) {
   stroke: white !important;

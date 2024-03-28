@@ -63,6 +63,10 @@ export default {
           slidesPerView: 5,
         },
       },
+      autoplay: {
+        disableOnInteraction: false,
+        delay: 3000,
+      },
     });
   },
 };
@@ -70,6 +74,7 @@ export default {
 
 <style scoped>
 .wrap {
+  overflow-x: clip;
   position: relative;
 }
 .border {

@@ -112,6 +112,10 @@ export default {
         prevEl: ".newsPrev",
         nextEl: ".newsNext",
       },
+      autoplay: {
+        disabloOnInteraction: false,
+        delay: 3000,
+      },
       breakpoints: {
         768: {
           slidesPerView: 3,
@@ -145,12 +149,19 @@ export default {
   border-inline: 1px solid #ebebeb;
   padding: 0 0 97px 0;
 }
+.img {
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
 .img img {
+  transition: 0.3s;
   width: 100%;
   height: 318px;
-  border-radius: 16px;
   object-fit: cover;
-  margin-bottom: 20px;
+}
+.swiper-slide:hover img {
+  transform: scale(1.1);
 }
 .date {
   color: var(--Meta-grey, #667b8c);

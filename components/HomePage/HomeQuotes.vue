@@ -51,6 +51,11 @@ export default {
         prevEl: ".prev",
         nextEl: ".next",
       },
+      autoplay: {
+        disableOnInteraction: false,
+        delay: 3000,
+      },
+      speed: 1000,
     });
   },
 };

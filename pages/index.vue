@@ -72,7 +72,7 @@ export default {
       },
     });
 
-    const services = servicesData.reverse();
+    const services = servicesData?.reverse();
 
     return {
       services,

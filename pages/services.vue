@@ -6,82 +6,18 @@
 
     <div class="container">
       <div class="border">
-        <div class="item">
-          <h4 class="name">Satelite Data</h4>
+        <div class="item" v-for="item in services" :key="item.id">
+          <h4 class="name">{{ item.title }}</h4>
           <div class="images">
-            <div class="image" @click="openModal()">
-              <img src="@/assets/img/inner-1.jpg" alt="" class="pic" />
+            <div
+              class="image"
+              v-for="service in item.services"
+              :key="service.id"
+              @click="getId(item.id)"
+            >
+              <img :src="service.image" alt="" class="pic" />
               <div class="content">
-                <p class="par">Archive data</p>
-                <div class="icon">
-                  <ArrowRight />
-                </div>
-              </div>
-            </div>
-            <div class="image">
-              <img src="@/assets/img/inner-2.jpg" alt="" class="pic" />
-              <div class="content">
-                <p class="par">Archive data</p>
-                <div class="icon">
-                  <ArrowRight />
-                </div>
-              </div>
-            </div>
-            <div class="image">
-              <img src="@/assets/img/inner-3.jpg" alt="" class="pic" />
-              <div class="content">
-                <p class="par">Archive data</p>
-                <div class="icon">
-                  <ArrowRight />
-                </div>
-              </div>
-            </div>
-            <div class="image">
-              <img src="@/assets/img/inner-4.jpg" alt="" class="pic" />
-              <div class="content">
-                <p class="par">Archive data</p>
-                <div class="icon">
-                  <ArrowRight />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <h4 class="name">Ready solutions</h4>
-          <div class="images">
-            <div class="image">
-              <img src="@/assets/img/inner-1.jpg" alt="" class="pic" />
-              <div class="content">
-                <p class="par">Archive data</p>
-                <div class="icon">
-                  <ArrowRight />
-                </div>
-              </div>
-            </div>
-            <div class="image">
-              <img src="@/assets/img/inner-2.jpg" alt="" class="pic" />
-              <div class="content">
-                <p class="par">Archive data</p>
-                <div class="icon">
-                  <ArrowRight />
-                </div>
-              </div>
-            </div>
-            <div class="image">
-              <img src="@/assets/img/inner-3.jpg" alt="" class="pic" />
-              <div class="content">
-                <p class="par">Archive data</p>
-                <div class="icon">
-                  <ArrowRight />
-                </div>
-              </div>
-            </div>
-            <div class="image">
-              <img src="@/assets/img/inner-4.jpg" alt="" class="pic" />
-              <div class="content">
-                <p class="par">Archive data</p>
+                <p class="par">{{ service.title }}</p>
                 <div class="icon">
                   <ArrowRight />
                 </div>
@@ -95,63 +31,22 @@
     <div class="modal" :class="{ show: modalHandle }">
       <div class="space" @click="closeModal()"></div>
       <div class="body">
-        <h2>Archive data</h2>
+        <h2>{{ servicesOne.title }}</h2>
         <button class="x" @click="closeModal()">
           <XCom />
         </button>
 
-        <div class="scroller">
-          <div class="piece">
+        <div class="scroller" :class="{ auto: modalHandle }">
+          <div
+            class="piece"
+            v-for="piece in servicesOne.services"
+            :key="piece.id"
+          >
             <div class="poster">
-              <img src="@/assets/img/inner-1.jpg" alt="" />
+              <img :src="piece.image" alt="" />
             </div>
             <div class="text">
-              <h4>Planet lab (США) - ведущий поставщик спутниковых данных</h4>
-              <p>
-                Planet lab (США) - ведущий поставщик спутниковых данных для
-                получения изображений Земли и геопространственной аналитики,
-                предлагающий инновационные решения для мониторинга и анализа
-                земной поверхности.Planet lab (США) - ведущий поставщик
-                спутниковых данных для получения изображений Земли и
-                геопространственной аналитики, предлагающий инновационные
-                решения для мониторинга и анализа земной поверхности.
-              </p>
-            </div>
-          </div>
-
-          <div class="piece">
-            <div class="poster">
-              <img src="@/assets/img/inner-1.jpg" alt="" />
-            </div>
-            <div class="text">
-              <h4>Planet lab (США) - ведущий поставщик спутниковых данных</h4>
-              <p>
-                Planet lab (США) - ведущий поставщик спутниковых данных для
-                получения изображений Земли и геопространственной аналитики,
-                предлагающий инновационные решения для мониторинга и анализа
-                земной поверхности.Planet lab (США) - ведущий поставщик
-                спутниковых данных для получения изображений Земли и
-                геопространственной аналитики, предлагающий инновационные
-                решения для мониторинга и анализа земной поверхности.
-              </p>
-            </div>
-          </div>
-
-          <div class="piece">
-            <div class="poster">
-              <img src="@/assets/img/inner-1.jpg" alt="" />
-            </div>
-            <div class="text">
-              <h4>Planet lab (США) - ведущий поставщик спутниковых данных</h4>
-              <p>
-                Planet lab (США) - ведущий поставщик спутниковых данных для
-                получения изображений Земли и геопространственной аналитики,
-                предлагающий инновационные решения для мониторинга и анализа
-                земной поверхности.Planet lab (США) - ведущий поставщик
-                спутниковых данных для получения изображений Земли и
-                геопространственной аналитики, предлагающий инновационные
-                решения для мониторинга и анализа земной поверхности.
-              </p>
+              <h4>{{ piece.title }}</h4>
             </div>
           </div>
         </div>
@@ -167,6 +62,7 @@
 <script>
 import ArrowRight from "~/components/SvgIcons/ArrowRight.vue";
 import XCom from "@/components/SvgIcons/XCom.vue";
+import servicesApi from "@/api/services";
 
 export default {
   layout: "white",
@@ -174,10 +70,32 @@ export default {
   data() {
     return {
       modalHandle: false,
+      servicesOne: {},
+    };
+  },
+
+  async asyncData({ $axios, query, i18n }) {
+    const servicesData = await servicesApi.getServices($axios, {
+      params: query,
+      headers: {
+        language: i18n.locale,
+      },
+    });
+
+    const services = servicesData?.reverse();
+
+    return {
+      services,
     };
   },
 
   methods: {
+    getId(id) {
+      this.servicesOne = this.services.find((item) => item.id == id);
+
+      this.openModal();
+    },
+
     openModal() {
       this.modalHandle = true;
       document.body.style.overflow = "hidden";
@@ -338,11 +256,15 @@ export default {
   right: 24px;
 }
 .scroller {
-  overflow-y: auto;
-  height: 95%;
+  overflow-y: hidden;
+  height: auto;
   padding-right: 16px;
   margin-right: -16px;
   padding-bottom: 80px;
+}
+.auto {
+  overflow-y: auto;
+  height: 95%;
 }
 .scroller::-webkit-scrollbar {
   width: 6px;
@@ -420,10 +342,10 @@ export default {
   }
   .border {
     padding: 64px 0;
-    gap: 64px;
+    gap: 40px;
   }
   .name {
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 600;
     line-height: 130%;
@@ -445,7 +367,7 @@ export default {
     line-height: 150%;
   }
   .content {
-    padding: 12px;
+    padding: 10px;
   }
 
   .modal {
@@ -457,12 +379,11 @@ export default {
     transform: translateY(100%);
   }
   .par {
-    font-size: 14px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 500;
-    line-height: 150%;
-    padding-left: 16px;
-    margin-bottom: 16px;
+    line-height: 130%;
+    padding-left: 8px;
     border-left: 4px solid var(--red);
   }
   .x {

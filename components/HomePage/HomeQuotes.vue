@@ -52,8 +52,6 @@ export default {
         nextEl: ".next",
       },
     });
-
-    console.log(this.quotes);
   },
 };
 </script>

@@ -65,17 +65,14 @@
             </a>
           </div>
           <div class="files">
-            <div class="file">
-              <a href="#"> Product #1 <FileIcon /> </a>
-            </div>
-            <div class="file">
-              <a href="#"> Product #1 <FileIcon /> </a>
-            </div>
-            <div class="file">
-              <a href="#"> Product #1 <FileIcon /> </a>
-            </div>
-            <div class="file">
-              <a href="#"> Product #1 <FileIcon /> </a>
+            <div
+              class="file"
+              v-for="(file, index) in partnersOne.files"
+              :key="file.id"
+            >
+              <a download target="_blank" :href="file.file">
+                Product #{{ index + 1 }} <FileIcon />
+              </a>
             </div>
           </div>
         </div>

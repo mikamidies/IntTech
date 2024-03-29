@@ -11,22 +11,27 @@
           <XCom />
         </button>
       </div>
-      <form>
+      <form @submit.prevent="onSubmit">
         <input
           type="text"
           :placeholder="$store.state.translations[`main.name`]"
+          required
+          v-model="name"
         />
         <input
-          type="text"
+          type="number"
           :placeholder="$store.state.translations[`main.number`]"
+          required
+          v-model="number"
         />
         <textarea
           :placeholder="$store.state.translations[`main.message`]"
+          v-model="message"
         ></textarea>
 
         <div class="flexer">
           <div class="check">
-            <input type="checkbox" id="check" />
+            <input type="checkbox" id="check" required />
             <label for="check">
               {{ $store.state.translations["main.label"] }}
               <a href="#">{{ $store.state.translations["main.label_link"] }}</a>
@@ -50,10 +55,15 @@
 import XCom from "./SvgIcons/XCom.vue";
 import UpArrow from "./SvgIcons/UpArrow.vue";
 
+import formApi from "@/api/form";
+
 export default {
   data() {
     return {
       modalHandle: false,
+      number: "",
+      name: "",
+      message: "",
     };
   },
 
@@ -63,6 +73,32 @@ export default {
   },
 
   methods: {
+    async onSubmit() {
+      const formData = {
+        name: this.name,
+        number: this.number,
+        message: this.message,
+      };
+
+      const res = await formApi.sendForm(formData);
+
+      if (res && res.status === 201) {
+        this.$notification["success"]({
+          message: "Succesfully sent!",
+        });
+      } else {
+        this.$notification["error"]({
+          message: "Error!",
+        });
+      }
+
+      this.name = "";
+      this.number = "";
+      this.message - "";
+
+      this.closeModal();
+    },
+
     openModal() {
       this.modalHandle = true;
       document.body.style.overflow = "hidden";

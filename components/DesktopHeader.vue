@@ -2,26 +2,34 @@
   <div class="wrap" id="navbar">
     <div class="container">
       <div class="left">
-        <NuxtLink class="brand white" to="/">
+        <NuxtLink class="brand white" :to="localePath('/')">
           <img src="@/assets/img/logo/brand.svg" alt="" />
         </NuxtLink>
-        <NuxtLink class="brand blue" to="/">
+        <NuxtLink class="brand blue" :to="localePath('/')">
           <img src="@/assets/img/logo/brand-blue.svg" alt="" />
         </NuxtLink>
       </div>
       <div class="border">
         <ul class="links">
           <li>
-            <NuxtLink to="/"> Home </NuxtLink>
+            <NuxtLink :to="localePath('/')">
+              {{ $store.state.translations["main.home"] }}
+            </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/services"> Services </NuxtLink>
+            <NuxtLink :to="localePath('/services')">
+              {{ $store.state.translations["main.services"] }}
+            </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/partners"> Partners </NuxtLink>
+            <NuxtLink :to="localePath('/partners')">
+              {{ $store.state.translations["main.partners"] }}
+            </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/contacts"> Contacts </NuxtLink>
+            <NuxtLink :to="localePath('/contacts')">
+              {{ $store.state.translations["main.contacts"] }}
+            </NuxtLink>
           </li>
         </ul>
 
@@ -29,14 +37,21 @@
           <div class="lang">
             <a-dropdown>
               <a-menu slot="overlay">
-                <a-menu-item key="1"> Ru </a-menu-item>
-                <a-menu-item key="2"> En </a-menu-item>
+                <a-menu-item key="1">
+                  <NuxtLink :to="switchLocalePath('ru')">Русский</NuxtLink>
+                </a-menu-item>
+                <a-menu-item key="2">
+                  <NuxtLink :to="switchLocalePath('en')">English</NuxtLink>
+                </a-menu-item>
+                <a-menu-item key="3">
+                  <NuxtLink :to="switchLocalePath('uz')">O'zbekcha</NuxtLink>
+                </a-menu-item>
               </a-menu>
-              <a-button> Ru <ChevronDown /> </a-button>
+              <a-button> {{ $i18n.locale }} <ChevronDown /> </a-button>
             </a-dropdown>
           </div>
           <div class="button" @click="openAppModal()">
-            <button>Contact us</button>
+            <button>{{ $store.state.translations["main.contact_us"] }}</button>
           </div>
         </div>
       </div>
@@ -151,6 +166,7 @@ export default {
   gap: 4px;
   padding: 0;
   transition: 0s;
+  text-transform: capitalize;
 }
 .brand img {
   width: 172px;

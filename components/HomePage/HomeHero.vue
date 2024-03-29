@@ -13,7 +13,7 @@
     <div class="container">
       <div class="border">
         <h4 class="title">
-          Все наши знания о земле начинались с ее изучения из космоса
+          {{ $store.state.translations["main.title"] }}
         </h4>
       </div>
     </div>

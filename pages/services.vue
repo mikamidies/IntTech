@@ -1,6 +1,6 @@
 <template>
   <div class="master">
-    <SiteTop />
+    <SiteTop :title="$store.state.translations['main.services']" />
 
     <div class="stick"></div>
 

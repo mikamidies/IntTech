@@ -3,27 +3,39 @@
     <div class="space" @click="closeModal()"></div>
     <div class="body">
       <div class="header">
-        <h4 class="heading">Свяжется с нами</h4>
+        <h4 class="heading">
+          {{ $store.state.translations["main.contact_us"] }}
+        </h4>
 
         <button class="x" @click="closeModal()">
           <XCom />
         </button>
       </div>
       <form>
-        <input type="text" placeholder="Имя" />
-        <input type="text" placeholder="Номер телефона" />
-        <textarea placeholder="Сообщение"></textarea>
+        <input
+          type="text"
+          :placeholder="$store.state.translations[`main.name`]"
+        />
+        <input
+          type="text"
+          :placeholder="$store.state.translations[`main.number`]"
+        />
+        <textarea
+          :placeholder="$store.state.translations[`main.message`]"
+        ></textarea>
 
         <div class="flexer">
           <div class="check">
             <input type="checkbox" id="check" />
             <label for="check">
-              Отправляя эту форму, я подтверждаю, что прочитали принимаю
-              <a href="#">Политику конфиденциальности.</a>
+              {{ $store.state.translations["main.label"] }}
+              <a href="#">{{ $store.state.translations["main.label_link"] }}</a>
             </label>
           </div>
 
-          <button type="submit">Отправить <UpArrow /></button>
+          <button type="submit">
+            {{ $store.state.translations["main.send"] }} <UpArrow />
+          </button>
         </div>
       </form>
 

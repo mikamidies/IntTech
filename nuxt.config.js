@@ -24,7 +24,7 @@ export default {
   modules: ["@nuxtjs/axios", "@nuxtjs/i18n"],
 
   axios: {
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.BASE_URL || "https://intechapi.pythonanywhere.com/api",
   },
 
   build: {

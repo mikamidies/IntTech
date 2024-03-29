@@ -4,10 +4,12 @@
 
     <div class="container">
       <div class="border">
-        <h4 class="heading">Наши сервисы</h4>
+        <h4 class="heading">
+          {{ $store.state.translations["main.our_services"] }}
+        </h4>
         <div class="items">
           <div class="item" v-for="(item, index) in services" :key="item.id">
-            <NuxtLink to="/">
+            <NuxtLink :to="localePath('/services')">
               <div class="content">
                 <p class="num">{{ index + 1 }}</p>
                 <p class="name">{{ item.title }}</p>
@@ -15,7 +17,9 @@
 
               <div class="hidden">
                 <div v-html="item.desc"></div>
-                <p class="link">Подробнее <ArrowRight /></p>
+                <p class="link">
+                  {{ $store.state.translations["main.more"] }} <ArrowRight />
+                </p>
               </div>
             </NuxtLink>
             <img :src="item.image" alt="" class="pic" />

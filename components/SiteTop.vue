@@ -3,15 +3,17 @@
     <div class="container">
       <div class="border">
         <div class="cardo">
-          <h1 class="title">Наши партнеры</h1>
+          <h1 class="title">{{ title }}</h1>
           <div class="line"></div>
           <ol>
             <li>
-              <NuxtLink to="/"> Home </NuxtLink>
+              <NuxtLink :to="localePath('/')">
+                {{ $store.state.translations["main.home"] }}
+              </NuxtLink>
             </li>
             /
             <li>
-              <p>Partners</p>
+              <p>{{ title }}</p>
             </li>
           </ol>
         </div>
@@ -21,7 +23,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["title"],
+};
 </script>
 
 <style scoped>

@@ -5,7 +5,9 @@
     <div class="container">
       <div class="border">
         <div class="header">
-          <h4 class="heading">Новости</h4>
+          <h4 class="heading">
+            {{ $store.state.translations["main.news"] }}
+          </h4>
 
           <div class="buttons">
             <button class="prev newsPrev">

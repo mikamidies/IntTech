@@ -3,29 +3,37 @@
     <div class="container">
       <div class="border">
         <div class="left">
-          <NuxtLink to="/">
+          <NuxtLink :to="localePath('/')">
             <img src="@/assets/img/logo/brand.svg" alt="" />
           </NuxtLink>
         </div>
         <div class="mid">
           <ul class="links">
             <li>
-              <NuxtLink to="/">Home</NuxtLink>
+              <NuxtLink :to="localePath('/')">{{
+                $store.state.translations["main.home"]
+              }}</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/services">Services</NuxtLink>
+              <NuxtLink :to="localePath('/services')">{{
+                $store.state.translations["main.services"]
+              }}</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/partners">Partners</NuxtLink>
+              <NuxtLink :to="localePath('/partners')">{{
+                $store.state.translations["main.partners"]
+              }}</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/contacts">Contacts</NuxtLink>
+              <NuxtLink :to="localePath('/contacts')">{{
+                $store.state.translations["main.contacts"]
+              }}</NuxtLink>
             </li>
           </ul>
         </div>
         <div class="right">
           <div>
-            <p class="sup">Социальные медиа</p>
+            <p class="sup">{{ $store.state.translations["main.socials"] }}</p>
 
             <ul class="socs">
               <li>
@@ -53,7 +61,7 @@
         </div>
       </div>
       <div class="bottom">
-        <p>INT - TECH | Copyright © 2024 | All rights reserved</p>
+        <p>{{ $store.state.translations["main.rights"] }}</p>
       </div>
     </div>
   </div>

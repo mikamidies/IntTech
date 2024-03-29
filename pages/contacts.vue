@@ -1,6 +1,6 @@
 <template>
   <div class="master">
-    <SiteTop />
+    <SiteTop :title="$store.state.translations['main.contacts']" />
 
     <div class="stick"></div>
 
@@ -8,15 +8,17 @@
       <div class="border">
         <div class="top">
           <div class="item">
-            <p class="sup">Электронный адрес</p>
+            <p class="sup">{{ $store.state.translations["main.email"] }}</p>
             <a class="value" href="#"> @int_tech.uz </a>
           </div>
           <div class="item">
-            <p class="sup">Телефон номер</p>
+            <p class="sup">
+              {{ $store.state.translations["main.our_number"] }}
+            </p>
             <a class="value" href="#"> +998 33 998-44-40 </a>
           </div>
           <div class="item">
-            <p class="sup">Социальные медиа</p>
+            <p class="sup">{{ $store.state.translations["main.socials"] }}</p>
             <ul class="socs">
               <li>
                 <a href="#" target="_blank">
@@ -54,7 +56,7 @@
           ></iframe>
 
           <div class="content">
-            <p>Адрес:</p>
+            <p>{{ $store.state.translations["main.address"] }}</p>
             <h4>
               O‘zbekiston, 100080, Toshkent sh, Yunusobod tumani, Injobod 32
             </h4>

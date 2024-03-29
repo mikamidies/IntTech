@@ -4,7 +4,7 @@
 
     <div class="container">
       <div class="left">
-        <NuxtLink class="brand" to="/">
+        <NuxtLink class="brand" :to="localePath('/')">
           <img src="@/assets/img/logo/brand.svg" class="white" alt="" />
           <img src="@/assets/img/logo/brand-blue.svg" class="blue" alt="" />
         </NuxtLink>
@@ -14,10 +14,17 @@
         <div class="lang">
           <a-dropdown>
             <a-menu slot="overlay">
-              <a-menu-item key="1"> Ru </a-menu-item>
-              <a-menu-item key="2"> En </a-menu-item>
+              <a-menu-item key="1">
+                <NuxtLink :to="switchLocalePath('ru')">Русский</NuxtLink>
+              </a-menu-item>
+              <a-menu-item key="2">
+                <NuxtLink :to="switchLocalePath('en')">English</NuxtLink>
+              </a-menu-item>
+              <a-menu-item key="3">
+                <NuxtLink :to="switchLocalePath('uz')">O'zbekcha</NuxtLink>
+              </a-menu-item>
             </a-menu>
-            <a-button> Ru <ChevronDown /> </a-button>
+            <a-button> {{ $i18n.locale }} <ChevronDown /> </a-button>
           </a-dropdown>
         </div>
         <div
@@ -33,21 +40,31 @@
     <div class="menu" :class="{ show: menuHandle == true }">
       <ul class="links">
         <li>
-          <NuxtLink to="/"> Home </NuxtLink>
+          <NuxtLink :to="localePath('/')">
+            {{ $store.state.translations["main.home"] }}
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/services"> Services </NuxtLink>
+          <NuxtLink :to="localePath('/services')">
+            {{ $store.state.translations["main.services"] }}
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/partners"> Partners </NuxtLink>
+          <NuxtLink :to="localePath('/partners')">
+            {{ $store.state.translations["main.partners"] }}
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/contacts"> Contacts </NuxtLink>
+          <NuxtLink :to="localePath('/contacts')">
+            {{ $store.state.translations["main.contacts"] }}
+          </NuxtLink>
         </li>
       </ul>
 
       <div class="button">
-        <button @click="openAppModal()">Связаться с нами</button>
+        <button @click="openAppModal()">
+          {{ $store.state.translations["main.contact_us"] }}
+        </button>
       </div>
     </div>
   </div>
@@ -147,6 +164,7 @@ export default {
   gap: 4px;
   padding: 0;
   transition: 0s;
+  text-transform: capitalize;
 }
 .right {
   display: flex;

@@ -1,6 +1,6 @@
 <template>
   <div class="master">
-    <SiteTop />
+    <SiteTop :title="$store.state.translations['main.partners']" />
 
     <div class="stick"></div>
 
@@ -19,7 +19,7 @@
               </div>
 
               <a :href="item.url" target="blank" class="link">
-                Перейти <UpArrow />
+                {{ $store.state.translations["main.open"] }} <UpArrow />
               </a>
             </div>
             <div class="content">

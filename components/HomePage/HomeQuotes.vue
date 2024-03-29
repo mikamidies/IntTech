@@ -5,7 +5,9 @@
     <div class="container">
       <div class="border">
         <div class="header">
-          <h4 class="heading white">Цитаты</h4>
+          <h4 class="heading white">
+            {{ $store.state.translations["main.quotes"] }}
+          </h4>
 
           <div class="buttons">
             <button class="prev">

@@ -5,9 +5,13 @@
     <div class="container">
       <div class="border">
         <div class="header">
-          <h4 class="heading">Search imagery</h4>
+          <h4 class="heading">
+            {{ $store.state.translations["main.search"] }}
+          </h4>
 
-          <a href="#"> Go to site <ArrowRight /></a>
+          <a target="_blank" href="https://discover.maxar.com/">
+            {{ $store.state.translations["main.goto"] }} <ArrowRight
+          /></a>
         </div>
 
         <div class="swiper" ref="searchSwiper">

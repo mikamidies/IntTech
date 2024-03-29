@@ -6,39 +6,44 @@
       <div class="border">
         <div class="grid">
           <div class="left">
-            <h4 class="heading white">"INT TECH"</h4>
+            <h4 class="heading white">
+              {{ $store.state.translations["main.brand"] }}
+            </h4>
             <div class="pad">
               <p class="sub">
-                ООО "INT TECH" - это узбекская компания, специализирующаяся на
-                предоставлении услуг в области геоинформационных технологий и
-                обработки пространственных данных.
+                {{ $store.state.translations["main.about-1"] }}
               </p>
               <p class="txt">
-                Мы предлагаем широкий спектр продуктов и услуг, которые помогают
-                организациям визуализировать, анализировать и интегрировать 2D и
-                3D геопространственную информацию для мониторинга и решения
-                сложных бизнес-задач.
+                {{ $store.state.translations["main.about-2"] }}
               </p>
-              <button>Связаться с нами</button>
+              <button>{{ $store.state.translations["main.send"] }}</button>
             </div>
           </div>
           <div class="right">
             <div class="items">
               <div class="item">
-                <p class="num">14+</p>
-                <p class="value">years of experience</p>
+                <p class="num">{{ $store.state.translations["main.num-1"] }}</p>
+                <p class="value">
+                  {{ $store.state.translations["main.value-1"] }}
+                </p>
               </div>
               <div class="item">
-                <p class="num">360+</p>
-                <p class="value">corporate clients</p>
+                <p class="num">{{ $store.state.translations["main.num-2"] }}</p>
+                <p class="value">
+                  {{ $store.state.translations["main.value-2"] }}
+                </p>
               </div>
               <div class="item">
-                <p class="num">32</p>
-                <p class="value">types of products</p>
+                <p class="num">{{ $store.state.translations["main.num-3"] }}</p>
+                <p class="value">
+                  {{ $store.state.translations["main.value-3"] }}
+                </p>
               </div>
               <div class="item">
-                <p class="num">250+</p>
-                <p class="value">transactions with clients</p>
+                <p class="num">{{ $store.state.translations["main.num-4"] }}</p>
+                <p class="value">
+                  {{ $store.state.translations["main.value-4"] }}
+                </p>
               </div>
             </div>
           </div>

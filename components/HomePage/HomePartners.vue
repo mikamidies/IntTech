@@ -8,12 +8,11 @@
       <div class="border">
         <div class="header">
           <div class="left">
-            <h4 class="heading">Наши партнеры</h4>
+            <h4 class="heading">
+              {{ $store.state.translations["main.our_partners"] }}
+            </h4>
             <p class="sub">
-              Ваше сотрудничество с нами имеет решающее значение для нашего
-              успеха. Мы стремимся работать вместе с нашими опытными и
-              заслуживающими доверия партнерами, чтобы предоставить вам отличный
-              сервис и еще больше укрепить наше сообщество.
+              {{ $store.state.translations["main.part-sub"] }}
             </p>
           </div>
           <div class="buttons">

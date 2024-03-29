@@ -9,34 +9,53 @@
         <div class="top">
           <div class="item">
             <p class="sup">{{ $store.state.translations["main.email"] }}</p>
-            <a class="value" href="#"> @int_tech.uz </a>
+            <a
+              class="value"
+              :href="$store.state.translations[`main.email_val`]"
+            >
+              {{ $store.state.translations[`main.email_val`] }}
+            </a>
           </div>
           <div class="item">
             <p class="sup">
               {{ $store.state.translations["main.our_number"] }}
             </p>
-            <a class="value" href="#"> +998 33 998-44-40 </a>
+            <a class="value" :href="$store.state.translations[`main.num_val`]">
+              {{ $store.state.translations[`main.num_val`] }}
+            </a>
           </div>
           <div class="item">
             <p class="sup">{{ $store.state.translations["main.socials"] }}</p>
             <ul class="socs">
               <li>
-                <a href="#" target="_blank">
+                <a
+                  :href="$store.state.translations[`main.you_val`]"
+                  target="_blank"
+                >
                   <YoutubeIcon />
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank">
+                <a
+                  :href="$store.state.translations[`main.face_val`]"
+                  target="_blank"
+                >
                   <FacebookIcon />
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank">
+                <a
+                  :href="$store.state.translations[`main.inst_val`]"
+                  target="_blank"
+                >
                   <InstagramIcon />
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank">
+                <a
+                  :href="$store.state.translations[`main.link_val`]"
+                  target="_blank"
+                >
                   <LinkedinIcon />
                 </a>
               </li>
@@ -58,7 +77,7 @@
           <div class="content">
             <p>{{ $store.state.translations["main.address"] }}</p>
             <h4>
-              O‘zbekiston, 100080, Toshkent sh, Yunusobod tumani, Injobod 32
+              {{ $store.state.translations[`main.add_val`] }}
             </h4>
           </div>
         </div>
@@ -141,6 +160,9 @@ export default {
   display: flex;
   align-items: center;
   gap: 32px;
+}
+.socs a {
+  display: flex;
 }
 .iframe {
   position: relative;

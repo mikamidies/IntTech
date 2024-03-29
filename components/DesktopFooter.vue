@@ -37,22 +37,34 @@
 
             <ul class="socs">
               <li>
-                <a href="#" target="_blank">
+                <a
+                  :href="$store.state.translations[`main.you_val`]"
+                  target="_blank"
+                >
                   <YoutubeIcon />
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank">
+                <a
+                  :href="$store.state.translations[`main.face_val`]"
+                  target="_blank"
+                >
                   <FacebookIcon />
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank">
+                <a
+                  :href="$store.state.translations[`main.inst_val`]"
+                  target="_blank"
+                >
                   <InstagramIcon />
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank">
+                <a
+                  :href="$store.state.translations[`main.link_val`]"
+                  target="_blank"
+                >
                   <LinkedinIcon />
                 </a>
               </li>
@@ -140,6 +152,9 @@ export default {
   display: flex;
   align-items: center;
   gap: 32px;
+}
+.socs a {
+  display: flex;
 }
 .bottom p {
   color: var(--White, var(--White, #fff));

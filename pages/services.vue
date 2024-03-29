@@ -354,7 +354,7 @@ export default {
     border-width: 4px;
   }
   .images {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 16px;
   }
   .image {

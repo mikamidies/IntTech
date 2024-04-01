@@ -244,4 +244,65 @@ textarea::placeholder {
   top: 40px;
   right: 24px;
 }
+@media screen and (max-width: 768px) {
+  .wrapper {
+    align-items: flex-end;
+  }
+  .body {
+    padding: 24px 16px;
+    min-height: 60%;
+    height: auto;
+    transform: translateY(100%);
+  }
+  .logo {
+    display: none;
+  }
+  .flexer {
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .flexer button {
+    justify-content: center;
+    width: 100%;
+  }
+  .x {
+    top: 24px;
+    right: 16px;
+  }
+  .heading {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    padding-left: 12px;
+  }
+  input,
+  textarea {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    padding: 12px 0;
+  }
+  form {
+    gap: 8px;
+    margin-top: 24px;
+  }
+  textarea {
+    min-height: 120px;
+  }
+  .check label {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .check {
+    align-items: flex-start;
+  }
+  .check input {
+    height: 24px;
+  }
+}
 </style>

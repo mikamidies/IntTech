@@ -1,5 +1,7 @@
 <template>
   <div class="wrap">
+    <ApplicationModal ref="appModal" />
+
     <img src="@/assets/img/about.jpg" class="img" alt="" />
 
     <div class="container">
@@ -16,7 +18,9 @@
               <p class="txt">
                 {{ $store.state.translations["main.about-2"] }}
               </p>
-              <button>{{ $store.state.translations["main.send"] }}</button>
+              <button @click="openAppModal()">
+                {{ $store.state.translations["main.contact_us"] }}
+              </button>
             </div>
           </div>
           <div class="right">
@@ -54,7 +58,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    openAppModal() {
+      this.$refs.appModal.openModal();
+    },
+
+    closeAppModal() {
+      this.$refs.appModal.closeModal();
+    },
+  },
+};
 </script>
 
 <style scoped>

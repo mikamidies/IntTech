@@ -106,6 +106,7 @@ export default {
           spaceBetween: 24,
         },
       },
+      loop: true,
     });
   },
 };

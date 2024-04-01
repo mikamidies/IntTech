@@ -28,7 +28,9 @@
         <div class="swiper" ref="partnersSwiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="item in partners" :key="item.id">
-              <img :src="item.image" alt="" class="pic" />
+              <NuxtLink :to="`/partners#${item.id}`">
+                <img :src="item.image" alt="" class="pic" />
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -66,6 +68,7 @@ export default {
         disableOnInteraction: false,
         delay: 3000,
       },
+      loop: true,
     });
   },
 };
@@ -123,10 +126,12 @@ export default {
 .next :deep(svg) {
   transform: rotate(270deg);
 }
-.prev :deep(path) {
+.prev :deep(path),
+.next :deep(path) {
   fill: #9a999b;
 }
-.next :deep(path) {
+.next:hover :deep(path),
+.prev:hover :deep(path) {
   fill: var(--red);
 }
 .buttons {
@@ -141,10 +146,13 @@ export default {
 .swiper-slide {
   height: 123px;
   border-right: 1px solid #ebebeb;
+}
+.swiper-slide a {
   display: flex;
   align-items: center;
   justify-content: center;
   background: white;
+  height: 100%;
 }
 .pic {
   width: 70%;
@@ -163,7 +171,7 @@ export default {
 @media screen and (max-width: 768px) {
   .border {
     border-right: 0;
-    padding-bottom: 64px;
+    padding-bottom: 120px;
   }
   .stick {
     display: none;
@@ -188,7 +196,9 @@ export default {
     height: 80px;
   }
   .buttons {
-    display: none;
+    position: absolute;
+    bottom: 40px;
+    right: 16px;
   }
 }
 </style>

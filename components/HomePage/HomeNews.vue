@@ -124,6 +124,7 @@ export default {
           spaceBetween: 24,
         },
       },
+      loop: true,
     });
   },
 };
@@ -206,7 +207,12 @@ export default {
 .prev :deep(path) {
   fill: #9a999b;
 }
+.prev :deep(path),
 .next :deep(path) {
+  fill: #9a999b;
+}
+.next:hover :deep(path),
+.prev:hover :deep(path) {
   fill: var(--red);
 }
 .buttons {

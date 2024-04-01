@@ -58,6 +58,7 @@ export default {
         delay: 3000,
       },
       speed: 1000,
+      loop: true,
     });
   },
 };
@@ -114,7 +115,8 @@ export default {
 .next :deep(svg) {
   transform: rotate(270deg);
 }
-.next :deep(path) {
+.next:hover :deep(path),
+.prev:hover :deep(path) {
   fill: var(--red);
 }
 .buttons {

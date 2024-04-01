@@ -44,6 +44,7 @@
         <div class="scroller">
           <div class="iframe">
             <iframe
+              ref="player"
               :src="partnersOne.video_url"
               title="YouTube video player"
               frameborder="0"
@@ -112,11 +113,17 @@ export default {
 
     const partners = partnersData?.reverse();
 
-    console.log(partners);
-
     return {
       partners,
     };
+  },
+
+  async mounted() {
+    console.log(this.$route);
+
+    if (this.$route.hash) {
+      this.getId(this.$route.hash.replace("#", ""));
+    }
   },
 
   methods: {
@@ -133,6 +140,8 @@ export default {
     closeModal() {
       this.modalHandle = false;
       document.body.style.overflow = "auto";
+
+      this.partnersOne = {};
     },
   },
 

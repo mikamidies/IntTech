@@ -9,7 +9,7 @@
         </h4>
         <div class="items">
           <div class="item" v-for="(item, index) in services" :key="item.id">
-            <NuxtLink :to="localePath('/services')">
+            <NuxtLink :to="localePath(`/services#${item.id}`)">
               <div class="content">
                 <p class="num">{{ index + 1 }}</p>
                 <p class="name">{{ item.title }}</p>
@@ -224,6 +224,9 @@ export default {
   }
   .item:hover .content {
     transform: translateY(0);
+  }
+  .hidden :deep(p) {
+    -webkit-line-clamp: 4;
   }
 }
 </style>

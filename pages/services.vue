@@ -6,7 +6,7 @@
 
     <div class="container">
       <div class="border">
-        <div class="item" v-for="item in services" :key="item.id">
+        <div class="item" v-for="item in services" :key="item.id" :id="item.id">
           <h4 class="name">{{ item.title }}</h4>
           <div class="images">
             <div
@@ -47,6 +47,7 @@
             </div>
             <div class="text">
               <h4>{{ piece.title }}</h4>
+              <div class="slot" v-html="piece.desc"></div>
             </div>
           </div>
         </div>
@@ -127,11 +128,14 @@ export default {
   z-index: 1;
 }
 .border {
-  padding: 88px 0 120px 0;
+  padding: 0 0 120px 0;
   border-inline: 1px solid #ebebeb;
   display: flex;
   flex-direction: column;
-  gap: 80px;
+}
+.item {
+  padding-top: 120px;
+  margin-top: -40px;
 }
 .name {
   color: var(--Blue-night, #001935);
@@ -329,7 +333,7 @@ export default {
   line-height: 130%; /* 31.2px */
   margin-bottom: 16px;
 }
-.text p {
+.slot :deep(p) {
   color: var(--Black, #020105);
   font-size: 18px;
   font-style: normal;
@@ -341,7 +345,7 @@ export default {
     display: none;
   }
   .border {
-    padding: 64px 0;
+    padding: 40px 0 64px 0;
     gap: 40px;
   }
   .name {
@@ -425,6 +429,10 @@ export default {
     font-weight: 600;
     line-height: 140%;
     margin-bottom: 16px;
+  }
+  .item {
+    padding-top: 90px;
+    margin-top: -90px;
   }
 }
 </style>

@@ -4,7 +4,7 @@
       <div class="border">
         <div class="left">
           <NuxtLink :to="localePath('/')">
-            <img src="@/assets/img/logo/brand.svg" alt="" />
+            <img src="@/assets/img/logo/brand-red.svg" alt="" />
           </NuxtLink>
         </div>
         <div class="mid">

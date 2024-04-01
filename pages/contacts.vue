@@ -20,7 +20,10 @@
             <p class="sup">
               {{ $store.state.translations["main.our_number"] }}
             </p>
-            <a class="value" :href="$store.state.translations[`main.num_val`]">
+            <a
+              class="value"
+              :href="`tel:${$store.state.translations['main.num_val']}`"
+            >
               {{ $store.state.translations[`main.num_val`] }}
             </a>
           </div>
@@ -59,6 +62,14 @@
                   <LinkedinIcon />
                 </a>
               </li>
+              <li>
+                <a
+                  :href="$store.state.translations[`main.tel_val`]"
+                  target="_blank"
+                >
+                  <TelegramIcon />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -91,6 +102,7 @@ import InstagramIcon from "@/components/SvgIcons/InstagramIcon.vue";
 import LinkedinIcon from "@/components/SvgIcons/LinkedinIcon.vue";
 import YoutubeIcon from "@/components/SvgIcons/YoutubeIcon.vue";
 import FacebookIcon from "@/components/SvgIcons/FacebookIcon.vue";
+import TelegramIcon from "@/components/SvgIcons/TelegramIcon.vue";
 
 export default {
   layout: "white",
@@ -100,6 +112,7 @@ export default {
     LinkedinIcon,
     YoutubeIcon,
     FacebookIcon,
+    TelegramIcon,
   },
 };
 </script>
@@ -197,6 +210,9 @@ export default {
   font-weight: 600;
   line-height: 140%; /* 33.6px */
   max-width: 576px;
+}
+.socs :deep(path) {
+  fill: #001935;
 }
 @media screen and (max-width: 768px) {
   .stick {

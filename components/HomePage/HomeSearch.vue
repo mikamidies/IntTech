@@ -14,36 +14,59 @@
           /></a>
         </div>
 
-        <div class="swiper" ref="searchSwiper">
+        <div class="swiper slider" ref="searchSwiper">
           <div class="swiper-wrapper">
             <div
               class="swiper-slide"
-              v-for="item in places"
+              v-for="(item, index) in places"
               :key="item.id"
-              @click="getId(item.id)"
+              @click="getId(item.id, index)"
             >
               <div class="img">
                 <img :src="item.image" alt="" />
               </div>
               <div class="content">
                 <p class="name">{{ item.title }}</p>
-                <p class="sub">{{ item.subtitle }}</p>
               </div>
             </div>
           </div>
         </div>
 
         <div class="modal" :class="{ show: modalHandle == true }">
-          <div class="space">
-            <div class="body">
-              <button class="x" @click="closeModal()">
-                <XCom />
-              </button>
-
-              <img :src="placesOne.image" alt="" class="cover" />
-              <div class="cont">
-                <h4>{{ placesOne.title }}</h4>
-                <p>{{ placesOne.subtitle }}</p>
+          <button @click="closeModal" class="x">
+            <XCom />
+          </button>
+          <div class="space" @click="closeModal"></div>
+          <div class="body">
+            <div class="top">
+              <div class="swiper" ref="topSwiper">
+                <div class="swiper-wrapper">
+                  <div
+                    class="swiper-slide"
+                    v-for="image in places"
+                    :key="image.id"
+                  >
+                    <img :src="image.image" alt="" />
+                    <div class="cont">
+                      <h4>
+                        {{ image.title }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bottom" thumbsSlider="">
+              <div class="swiper" ref="bottomSwiper">
+                <div class="swiper-wrapper">
+                  <div
+                    class="swiper-slide"
+                    v-for="thumb in places"
+                    :key="thumb.id"
+                  >
+                    <img :src="thumb.image" alt="" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -71,14 +94,20 @@ export default {
     return {
       modalHandle: false,
       placesOne: {},
+      activeSlide: 0,
     };
   },
 
   methods: {
-    getId(id) {
+    async getId(id, index) {
       this.placesOne = this.places.find((item) => item.id == id);
 
-      this.openModal();
+      this.activeSlide = index;
+      await this.getSlideIndex();
+
+      setTimeout(() => {
+        this.openModal();
+      }, 100);
     },
 
     openModal() {
@@ -90,16 +119,39 @@ export default {
       this.modalHandle = false;
       document.body.style.overflow = "auto";
     },
+
+    getSlideIndex() {
+      const swiper = new Swiper(this.$refs.bottomSwiper, {
+        spaceBetween: 8,
+        slidesPerView: 3.5,
+        breakpoints: {
+          768: {
+            slidesPerView: 4.5,
+            spaceBetween: 16,
+          },
+        },
+      });
+
+      new Swiper(this.$refs.topSwiper, {
+        spaceBetween: 16,
+        thumbs: {
+          swiper: swiper,
+        },
+        initialSlide: this.activeSlide,
+      });
+    },
   },
 
-  mounted() {
+  async mounted() {
+    this.getSlideIndex();
+
     new Swiper(this.$refs.searchSwiper, {
       slidesPerView: 1.3,
       spaceBetween: 16,
-      autoplay: {
-        disableOnInteraction: false,
-        delay: 3000,
-      },
+      // autoplay: {
+      //   disableOnInteraction: false,
+      //   delay: 3000,
+      // },
       breakpoints: {
         768: {
           slidesPerView: 4.5,
@@ -117,7 +169,7 @@ export default {
   overflow: hidden;
   position: relative;
 }
-.swiper {
+.slider {
   overflow: visible;
 }
 .header {
@@ -146,7 +198,7 @@ export default {
 .header a :deep(path) {
   fill: var(--red);
 }
-.swiper-slide:hover img {
+.slider .swiper-slide:hover img {
   transform: scale(1.1);
 }
 .img {
@@ -197,18 +249,24 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: 0.3s;
   z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
 }
 .modal.show {
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
 }
+
 .x {
   position: absolute;
   top: 32px;
@@ -228,87 +286,101 @@ export default {
   background: rgba(0, 0, 0, 0.5);
 }
 .body {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 1080px;
-  border-radius: 24px;
-  overflow: hidden;
-  min-height: 720px;
-  z-index: 100;
+  position: relative;
+  width: 60%;
+  height: 90%;
+  z-index: 2;
 }
-.body::after {
+.modal .top {
+  height: calc(80% - 24px);
+  margin-bottom: 24px;
+}
+.modal .bottom {
+  height: 20%;
+}
+.modal .swiper {
+  height: 100%;
+}
+
+.top .swiper {
+  border-radius: 32px;
+  overflow: hidden;
+}
+.modal .swiper-slide::after {
   width: 100%;
   height: 40%;
   background: rgb(2, 0, 36);
   background: linear-gradient(
     0deg,
     rgba(2, 0, 36, 1) 0%,
-    rgba(0, 0, 0, 0.4990371148459384) 50%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 0, 0, 0.4990371148459384) 40%,
+    rgba(0, 0, 0, 0) 80%
   );
   bottom: 0;
   left: 0;
   content: "";
-  z-index: 100;
+  z-index: 1;
   position: absolute;
 }
-.body::before {
+.modal .swiper-slide::before {
   width: 100%;
   height: 40%;
   background: rgb(2, 0, 36);
   background: linear-gradient(
     0deg,
     rgba(2, 0, 36, 1) 0%,
-    rgba(0, 0, 0, 0.4990371148459384) 50%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 0, 0, 0.4990371148459384) 30%,
+    rgba(0, 0, 0, 0) 70%
   );
   top: 0;
   left: 0;
   content: "";
   transform: rotate(180deg);
-  z-index: 200;
+  z-index: 1;
   position: absolute;
 }
-.cover {
-  position: absolute;
-  top: 0;
-  left: 0;
+.top .swiper-slide {
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+}
+.top img,
+.bottom img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 100;
 }
 .cont {
-  position: relative;
-  z-index: 103;
   position: absolute;
   bottom: 32px;
   left: 32px;
-  color: white;
+  z-index: 2;
 }
 .cont h4 {
   font-size: 32px;
   margin-bottom: 0px;
   color: white;
 }
-.cont p {
-  font-size: 18px;
-  opacity: 0.8;
+
+.bottom .swiper {
+  border-radius: 16px;
+  overflow: visible;
+}
+.bottom .swiper-slide {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.bottom .swiper-slide-thumb-active {
+  border: 2px solid var(--red);
 }
 
 @media screen and (max-width: 768px) {
   .body {
-    min-width: 0;
-    min-height: 0;
+    padding: 0 16px;
     width: 100%;
     height: 80%;
-    bottom: 0;
-    top: auto;
-    left: auto;
-    transform: translate(0);
-    border-radius: 0;
+    border-radius: 16px;
   }
   .x {
     top: 16px;
@@ -330,10 +402,13 @@ export default {
     width: 90%;
     justify-content: center;
   }
-  .img img {
+  .img {
     height: 387px;
     border-radius: 4px;
     margin-bottom: 8px;
+  }
+  .img img {
+    height: 100%;
   }
   .name {
     font-size: 20px;
@@ -346,6 +421,27 @@ export default {
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
+    line-height: 140%;
+  }
+  .top .swiper,
+  .top .swiper-slide {
+    border-radius: 16px;
+  }
+  .modal .top {
+    margin-bottom: 16px;
+  }
+  .bottom .swiper,
+  .bottom .swiper-slide {
+    border-radius: 8px;
+  }
+  .cont {
+    bottom: 24px;
+    left: 24px;
+  }
+  .cont h4 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
     line-height: 140%;
   }
 }

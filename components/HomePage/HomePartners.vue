@@ -32,6 +32,15 @@
                 <img :src="item.image" alt="" class="pic" />
               </NuxtLink>
             </div>
+            <div
+              class="swiper-slide"
+              v-for="item in partners"
+              :key="item.index"
+            >
+              <NuxtLink :to="`/partners#${item.id}`">
+                <img :src="item.image" alt="" class="pic" />
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@
     </div>
     <div class="five" v-else>
       <div class="content">
-        <h1 class="title">Ошибка сервера</h1>
+        <h1 class="title">{{ $store.state.translations["main.server"] }}</h1>
         <p class="sub">
           {{ $store.state.translations["main.back_to"] }}
         </p>
@@ -47,7 +47,8 @@ export default {
   height: 100vh;
   color: white;
 }
-.four {
+.four,
+.five {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,6 +119,7 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   display: none;
+  width: 100%;
 }
 @media screen and (max-width: 769px) {
   .back {

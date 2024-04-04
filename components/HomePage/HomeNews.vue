@@ -37,6 +37,38 @@
                 </p>
               </div>
             </div>
+            <div
+              class="swiper-slide"
+              v-for="item in news"
+              :key="item.index"
+              @click="getId(item.id)"
+            >
+              <div class="img">
+                <img :src="item.image" alt="" />
+              </div>
+              <div class="content">
+                <p class="date">{{ item.created_at }}</p>
+                <p class="name">
+                  {{ item.title }}
+                </p>
+              </div>
+            </div>
+            <div
+              class="swiper-slide"
+              v-for="item in news"
+              :key="item.count"
+              @click="getId(item.id)"
+            >
+              <div class="img">
+                <img :src="item.image" alt="" />
+              </div>
+              <div class="content">
+                <p class="date">{{ item.created_at }}</p>
+                <p class="name">
+                  {{ item.title }}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

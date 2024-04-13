@@ -3,10 +3,10 @@
     <div class="container">
       <div class="left">
         <NuxtLink class="brand white" :to="localePath('/')">
-          <img src="@/assets/img/logo/brand.svg" alt="" />
+          <img src="@/assets/img/logo/brand.png" alt="" />
         </NuxtLink>
         <NuxtLink class="brand blue" :to="localePath('/')">
-          <img src="@/assets/img/logo/brand-blue.svg" alt="" />
+          <img src="@/assets/img/logo/brand-blue.png" alt="" />
         </NuxtLink>
       </div>
       <div class="border">

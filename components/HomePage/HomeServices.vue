@@ -107,7 +107,7 @@ export default {
   font-style: normal;
   font-weight: 500;
   line-height: 120%; /* 38.4px */
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 .name {
   color: var(--White, var(--White, #fff));
@@ -135,11 +135,10 @@ export default {
   bottom: 24px;
   left: 24px;
   position: absolute;
-  max-width: 90%;
   transition: 0.4s;
   transform: translateY(120%);
-  width: 320px;
-  min-width: 320px;
+  width: 360px;
+  min-width: 360px;
 }
 .item:hover .hidden {
   transform: translateY(0);
@@ -150,17 +149,11 @@ export default {
 }
 .hidden :deep(p) {
   color: var(--White, var(--White, #fff));
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
   margin-bottom: 16px;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .link {
   font-size: 16px;
@@ -185,7 +178,7 @@ export default {
   }
   .item {
     width: 100%;
-    height: 280px;
+    height: auto;
     border-radius: 8px;
   }
   .item a {
@@ -227,6 +220,9 @@ export default {
   }
   .hidden :deep(p) {
     -webkit-line-clamp: 4;
+  }
+  .content {
+    height: 88px;
   }
 }
 </style>

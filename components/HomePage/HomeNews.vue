@@ -91,7 +91,7 @@
             </div>
 
             <div class="logo">
-              <img src="@/assets/img/logo/brand-blue.svg" alt="" />
+              <img src="@/assets/img/logo/brand-blue.png" alt="" />
             </div>
           </div>
         </div>

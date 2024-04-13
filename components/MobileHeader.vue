@@ -5,8 +5,8 @@
     <div class="container">
       <div class="left">
         <NuxtLink class="brand" :to="localePath('/')">
-          <img src="@/assets/img/logo/brand.svg" class="white" alt="" />
-          <img src="@/assets/img/logo/brand-blue.svg" class="blue" alt="" />
+          <img src="@/assets/img/logo/brand.png" class="white" alt="" />
+          <img src="@/assets/img/logo/brand-blue.png" class="blue" alt="" />
         </NuxtLink>
       </div>
 

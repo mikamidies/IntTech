@@ -46,15 +46,28 @@ export default {};
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50%;
+  height: 30%;
   z-index: 2;
-  background: rgb(2, 0, 36);
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.4990371148459384) 30%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.4990371148459384) 30%,
+    rgba(0, 0, 0, 0) 70%
+  );
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.7) 70%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 0, 0, 0.4990371148459384) 30%,
+    rgba(0, 0, 0, 0) 70%
   );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
 }
 iframe {
   transform: scale(1.2);

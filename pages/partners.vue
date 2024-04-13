@@ -18,7 +18,7 @@
                 <img :src="item.image" alt="" />
               </div>
 
-              <a :href="item.url" target="blank" class="link">
+              <a class="link">
                 {{ $store.state.translations["main.open"] }} <UpArrow />
               </a>
             </div>
@@ -54,11 +54,11 @@
             ></iframe>
           </div>
           <div class="html" v-html="partnersOne.desc"></div>
-          <div class="video_link">
+          <!-- <div class="video_link">
             <a :href="partnersOne.video_url" target="_blank"
               >{{ partnersOne.video_url }}
             </a>
-          </div>
+          </div> -->
           <div class="link">
             <a :href="partnersOne.url" target="_blank">
               {{ partnersOne.url?.replace("https://", "")?.replace("/", "") }}
@@ -72,14 +72,15 @@
               :key="file.id"
             >
               <a download target="_blank" :href="file.file">
-                Product #{{ index + 1 }} <FileIcon />
+                {{ $store.state.translations["main.file"] }} №{{ index + 1 }}
+                <FileIcon />
               </a>
             </div>
           </div>
         </div>
 
         <div class="icon">
-          <img src="@/assets/img/logo/brand-blue.svg" alt="" />
+          <img src="@/assets/img/logo/brand-blue.png" alt="" />
         </div>
       </div>
     </div>
@@ -302,7 +303,6 @@ export default {
   margin-bottom: 24px;
 }
 .video_link {
-  margin: 24px 0;
 }
 .video_link a {
   color: var(--Agro-Blue, #3c4bdc);
@@ -316,6 +316,7 @@ export default {
 }
 .modal .html {
   display: block;
+  margin: 0 0 24px 0;
 }
 .modal .html p {
   color: var(--Black, #020105);

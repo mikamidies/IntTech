@@ -4,7 +4,7 @@
       <div class="border">
         <div class="left">
           <NuxtLink :to="localePath('/')">
-            <img src="@/assets/img/logo/brand-red.svg" alt="" />
+            <img src="@/assets/img/logo/brand.png" alt="" />
           </NuxtLink>
         </div>
         <div class="mid">
@@ -111,6 +111,9 @@ export default {
   border-right: 1px solid var(--border);
   display: flex;
   align-items: center;
+}
+.left img {
+  width: 200px;
 }
 .mid {
   border-right: 1px solid var(--border);

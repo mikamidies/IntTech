@@ -11,7 +11,7 @@
             <p class="sup">{{ $store.state.translations["main.email"] }}</p>
             <a
               class="value"
-              :href="$store.state.translations[`main.email_val`]"
+              :href="`mailto:${$store.state.translations['main.email_val']}`"
             >
               {{ $store.state.translations[`main.email_val`] }}
             </a>

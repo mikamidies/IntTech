@@ -66,13 +66,9 @@
             </a>
           </div>
           <div class="files">
-            <div
-              class="file"
-              v-for="(file, index) in partnersOne.files"
-              :key="file.id"
-            >
+            <div class="file" v-for="file in partnersOne.files" :key="file.id">
               <a download target="_blank" :href="file.file">
-                {{ $store.state.translations["main.file"] }} №{{ index + 1 }}
+                {{ file.title }}
                 <FileIcon />
               </a>
             </div>
@@ -120,8 +116,6 @@ export default {
   },
 
   async mounted() {
-    console.log(this.$route);
-
     if (this.$route.hash) {
       this.getId(this.$route.hash.replace("#", ""));
     }
@@ -349,8 +343,9 @@ export default {
   margin-bottom: 24px;
 }
 .files {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
 }
 .file a {

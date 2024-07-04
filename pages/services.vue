@@ -13,7 +13,7 @@
               class="image"
               v-for="service in item.services"
               :key="service.id"
-              @click="getId(item.id)"
+              @click="getId(item.id,service)"
             >
               <img :src="service.image" alt="" class="pic" />
               <div class="content">
@@ -30,7 +30,10 @@
 
     <div class="modal" :class="{ show: modalHandle }">
       <div class="space" @click="closeModal()"></div>
-      <div class="body">
+      <div class="loader body" v-if="loading">
+        <a-spin />
+      </div>
+      <div class="body" v-else>
         <h2>{{ servicesOne.title }}</h2>
         <button class="x" @click="closeModal()">
           <XCom />
@@ -39,7 +42,7 @@
         <div class="scroller" :class="{ auto: modalHandle }">
           <div
             class="piece"
-            v-for="piece in servicesOne.services"
+            v-for="piece in servicesOne.data"
             :key="piece.id"
           >
             <div class="poster">
@@ -47,7 +50,7 @@
             </div>
             <div class="text">
               <h4>{{ piece.title }}</h4>
-              <div class="slot" v-html="piece.desc"></div>
+              <div class="slot" v-html="piece.text"></div>
             </div>
           </div>
         </div>
@@ -56,6 +59,7 @@
           <img src="@/assets/img/logo/brand-blue.png" alt="" />
         </div>
       </div>
+     
     </div>
   </div>
 </template>
@@ -72,6 +76,7 @@ export default {
     return {
       modalHandle: false,
       servicesOne: {},
+      loading: false
     };
   },
 
@@ -84,17 +89,33 @@ export default {
     });
 
     const services = servicesData?.reverse();
-
+  console.log(services);
     return {
       services,
     };
   },
 
   methods: {
-    getId(id) {
+    getId(id,service) {
       this.servicesOne = this.services.find((item) => item.id == id);
 
       this.openModal();
+      this.__GET_SERVICE(service.id)
+    },
+   async __GET_SERVICE(slug) {
+    this.loading = true
+    try {
+      const servicesData = await servicesApi.getService(slug,this.$axios, {
+      params: this.$route.query,
+      headers: {
+        language: this.$i18n.locale,
+      },
+    });
+    this.servicesOne = servicesData
+    } finally {
+      this.loading = false
+    }
+   
     },
 
     openModal() {
@@ -115,6 +136,14 @@ export default {
 </script>
 
 <style scoped>
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
 .master {
   position: relative;
 }

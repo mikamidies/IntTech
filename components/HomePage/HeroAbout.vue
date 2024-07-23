@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div id="about" class="wrap">
     <ApplicationModal ref="appModal" />
 
     <img src="@/assets/img/about.jpg" class="img" alt="" />
@@ -26,25 +26,49 @@
           <div class="right">
             <div class="items">
               <div class="item">
-                <p class="num">{{ $store.state.translations["main.num-1"] }}</p>
+                <p v-if="scrollEntered" class="num">
+                  <animated-number
+                    :value="parseInt($store.state.translations['main.num-1'])"
+                    :formatValue="formatToPrice"
+                    :duration="3000"
+                  />
+                </p>
                 <p class="value">
                   {{ $store.state.translations["main.value-1"] }}
                 </p>
               </div>
               <div class="item">
-                <p class="num">{{ $store.state.translations["main.num-2"] }}</p>
+                <p v-if="scrollEntered" class="num">
+                  <animated-number
+                    :value="parseInt($store.state.translations['main.num-2'])"
+                    :formatValue="formatToPrice"
+                    :duration="3000"
+                  />
+                </p>
                 <p class="value">
                   {{ $store.state.translations["main.value-2"] }}
                 </p>
               </div>
               <div class="item">
-                <p class="num">{{ $store.state.translations["main.num-3"] }}</p>
+                <p v-if="scrollEntered" class="num">
+                  <animated-number
+                    :value="parseInt($store.state.translations['main.num-3'])"
+                    :formatValue="formatToPrice"
+                    :duration="3000"
+                  />
+                </p>
                 <p class="value">
                   {{ $store.state.translations["main.value-3"] }}
                 </p>
               </div>
               <div class="item">
-                <p class="num">{{ $store.state.translations["main.num-4"] }}</p>
+                <p v-if="scrollEntered" class="num">
+                  <animated-number
+                    :value="parseInt($store.state.translations['main.num-4'])"
+                    :formatValue="formatToPrice"
+                    :duration="3000"
+                  />
+                </p>
                 <p class="value">
                   {{ $store.state.translations["main.value-4"] }}
                 </p>
@@ -58,7 +82,17 @@
 </template>
 
 <script>
+import AnimatedNumber from "animated-number-vue";
+
 export default {
+  components: {
+    AnimatedNumber,
+  },
+  data() {
+    return {
+      scrollEntered: false,
+    }
+  },
   methods: {
     openAppModal() {
       this.$refs.appModal.openModal();
@@ -67,7 +101,26 @@ export default {
     closeAppModal() {
       this.$refs.appModal.closeModal();
     },
+
+    formatToPrice(value) {
+      return `${Number(value).toFixed(0)}+`;
+    },
   },
+  mounted() {
+    const aboutSection = document.getElementById('about');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.scrollEntered = true;
+        } else {
+          this.scrollEntered = false;
+        }
+      });
+    }, { threshold: 0.1 }); // Adjust the threshold as needed
+
+    observer.observe(aboutSection);
+  }
 };
 </script>
 

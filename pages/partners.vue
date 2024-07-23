@@ -9,7 +9,24 @@
         <div class="grid">
           <div
             class="item"
-            v-for="item in partners"
+            @click="getId(partners.find(item => item.id === 15).id)"
+          >
+            <div class="header">
+              <div class="img">
+                <img :src="partners.find(item => item.id === 15).image" alt="" />
+              </div>
+
+              <a class="link">
+                {{ $store.state.translations["main.open"] }} <UpArrow />
+              </a>
+            </div>
+            <div class="content">
+              <div class="html" v-html="partners.find(item => item.id === 15).desc"></div>
+            </div>
+          </div>
+          <div
+            class="item"
+            v-for="item in partners.filter((item, index) => item.id !== 15)"
             :key="item.id"
             @click="getId(item.id)"
           >

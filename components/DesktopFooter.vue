@@ -3,9 +3,9 @@
     <div class="container">
       <div class="border">
         <div class="left">
-          <NuxtLink :to="localePath('/')">
+          <a href="https://www.esri.com" target="_blank">
             <img src="@/assets/img/logo/footer_logo.png" alt="" />
-          </NuxtLink>
+          </a>
         </div>
         <div class="mid">
           <ul class="links">
